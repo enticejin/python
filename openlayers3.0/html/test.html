@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Load Events</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
+    <style>
+        .map {
+            background: #E0ECED;
+            height: 500px;
+            width: 100%;
+        }
+        .wrapper {
+            position: relative;
+        }
+        #progress {
+            position:absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: rgba(0, 60, 136, 0.4);
+            width: 0;
+            transition: width 250ms;
+        }    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="map" class="map"></div>
+    <div id="progress"></div>
+    <div><button onclick="addImg()">addImg</button></div>
+</div>
+<script>
+
+
+    /**
+     * Renders a progress bar.
+     * @param {Element} el The target element.
+     * @constructor
+     */
+    function Progress(el) {
+        this.el = el;
+        this.loading = 3;
+        this.loaded = 3;
+    }
+
+
+
+    var progress = new Progress(document.getElementById('progress'));
+
+    var source = new ol.source.ImageWMS({
+        url: '01.jpg',
+        params: {'LAYERS': 'topp:states'},
+        serverType: 'geoserver'
+    });
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([106.70, 26.62]),
+            zoom: 10
+        })
+    });
+    function addImg() {
+        map.addLayer(
+            new ol.layer.Image({source: source})
+        );
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 800px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+</head>
+<body>
+<h2>My Map</h2>
+<div id="map" class="map"></div>
+<input type="button" value="回到原点-不带动画" onclick="backNoAnim()"></input>
+<input type="button" value="回到原点-带动画" onclick="backWithAnim()"></input>
+<script type="text/javascript">
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        view: new ol.View({
+            center: ol.proj.transform(
+                [106.70, 26.62], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 10
+        })
+    });
+
+    // 不带动画的实现
+    function backNoAnim() {
+        map.getView().setCenter(ol.proj.transform([106.70, 26.62], 'EPSG:4326', 'EPSG:3857'));
+    }
+
+    // 带动画的实现
+    function backWithAnim() {
+        // 注意： 应用内置的动画，实现平移动画
+        var pan = ol.animation.pan({
+            duration: 2000,
+            source: map.getView().getCenter()
+        });
+        // 注意： 使用beforeRender来添加
+        map.beforeRender(pan);
+        // 然后才是重新设置地图中心点到原来的位置
+        map.getView().setCenter(ol.proj.transform([106.70, 26.62], 'EPSG:4326', 'EPSG:3857'));
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+</head>
+<body>
+<h2>My Map</h2>
+<div id="map2" class="map"></div>
+<script type="text/javascript">
+    var map2 = new ol.Map({
+        // 在默认控件的基础上，再加上其他内置的控件
+        controls: ol.control.defaults().extend([
+            new ol.control.FullScreen(),
+            new ol.control.MousePosition(),
+            new ol.control.OverviewMap(),
+            new ol.control.ScaleLine(),
+            new ol.control.ZoomSlider(),
+            new ol.control.ZoomToExtent()
+        ]),
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map2',
+        view: new ol.View({
+            center: ol.proj.transform(
+                [106.70, 26.62], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 10
+        })
+    });
+</script>
+</body>
+</html>

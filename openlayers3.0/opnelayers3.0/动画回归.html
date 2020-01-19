@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 800px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+</head>
+<body>
+<h2>My Map</h2>
+<div id="map" class="map"></div>
+<select id = "easing-type">
+
+  <!--  ol.easing.easeIn: 加速
+    ol.easing.easeOut: 减速
+    ol.easing.inAndOut: 先加速再减速
+    ol.easing.linear: 匀速
+    ol.easing.upAndDown: 和inAndOut类似
+-->
+    <option>加速</option>
+    <option>减速</option>
+    <option>先加速再减速</option>
+    <option>匀速</option>
+    <option>先加速再减速</option>
+</select>
+<input type="button" value="回到原点" onclick="backWithAnim()"></input>
+<script type="text/javascript">
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        view: new ol.View({
+            center: ol.proj.transform(
+                [106.70, 26.62], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 10
+        })
+    });
+
+    // 根据选择项，返回对应的动画，供下面的backWithAnim函数使用
+    function getEasing() {
+        var typeSelect = document.getElementById('easing-type');
+        var easing = typeSelect.options[typeSelect.selectedIndex].text;
+        if (easing === 'easeIn') {
+            return ol.easing.easeIn;
+        } else if (easing === 'easeOut') {
+            return ol.easing.easeOut;
+        } else if (easing === 'inAndOut') {
+            return ol.easing.inAndOut;
+        } else if (easing === 'linear') {
+            return ol.easing.linear;
+        } else if (easing === 'upAndDown') {
+            return ol.easing.upAndDown;
+        }
+    }
+
+    function backWithAnim() {
+        var pan = ol.animation.pan({
+            duration: 2000,
+            source: map.getView().getCenter(),
+            easing: getEasing()    // 设置对应选择的动画
+        });
+        map.beforeRender(pan);
+        map.getView().setCenter(ol.proj.transform([106.70, 26.62], 'EPSG:4326', 'EPSG:3857'));
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        /*css*/
+        /*通用样式*/
+        body{
+            background: #FFBD1E;
+        }
+        ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        /*下拉框样式*/
+        #select{
+            margin:100px;
+            background: rgba(0,0,0,0);
+            width: 249px;
+            height: 40px;
+            font-family: "微软雅黑";
+            font-size: 18px;
+            color: white;
+            border: 1px #1a1a1a solid;
+            border-radius: 5px;
+        }
+        .select-head{
+            overflow: hidden;
+            width: 249px;
+            height: 40px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            line-height: 40px;
+        }
+        .select-head .select-head-cont{
+            float: left;
+        }
+        .select-head .select-icon{
+            float: right;
+        }
+        .option{
+            text-indent: 10px;
+            margin-top: 1px;
+            width: 249px;
+            color: black;
+            background: rgba(236,111,111,0.1);
+            line-height: 25px;
+            border: 1px #cfcfcf solid;
+            display: none;
+        }
+        .option-item:hover{
+            background: rgba(204,106,67,0.3);
+        }
+    </style>
+</head>
+<body>
+<!--html-->
+<ul id="select">
+    <li>
+        <div class="select-head">
+            <span class="select-head-cont"></span>
+            <span class="select-icon">▼</span>
+        </div>
+        <ul class="option">
+            <li class="option-item">chrome</li>
+            <li class="option-item">safari</li>
+            <li class="option-item">Edge</li>
+            <li class="option-item">firefox</li>
+            <li class="option-item">ie8</li>
+        </ul>
+
+    </li>
+</ul>
+<script type="text/javascript">
+    //int
+    var selectHead = document.getElementsByClassName('select-head')[0];
+    var selectHeadCont = document.getElementsByClassName('select-head-cont');
+    var Option = document.getElementsByClassName('option')[0];
+    var optionItem = document.getElementsByClassName('option-item');
+
+    /*默认是第一个选项*/
+    selectHeadCont[0].innerHTML = optionItem[0].innerHTML;
+
+    /*点击后出现下拉框*/
+    selectHead.addEventListener('click',function(){
+        Option.style.display = 'block';
+    },false);
+    /*点击选项后出现在下拉框*/
+    var len = optionItem.length;
+    for(var i=0;i<len;i++){
+        optionItem[i].index = i;
+        optionItem[i].addEventListener('click',function(){
+            selectHeadCont[0].innerHTML = optionItem[this.index].innerHTML;
+            Option.style.display = 'none';
+        },false);
+    }
+    /*点击其他地方时，select会收起来*/
+    document.body.addEventListener('click',function(){
+        Option.style.display = 'none';
+    }.false);
+</script>
+</body>
+</html>

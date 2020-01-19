@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标经纬度</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css"
+          type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <style>
+        .map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <td>经度：</td>
+            <td><input type="text" id="longitude" value="106.62802894"/></td>
+            <td>纬度：</td>
+            <td> <input type="text" id="latitude" value="26.62201124"/></td>
+        </tr>
+    </table>
+</div>
+<div id="map" class="map"></div>
+<div id="mouse-position"></div>
+<form>
+    <label>投影 </label>
+    <select id="projection">
+        <option value="EPSG:4326">EPSG:4326</option>
+        <option value="EPSG:3857">EPSG:3857</option>
+    </select>
+    <label>精确到 </label>
+    <input id="precision" type="number" min="0" max="12" value="4"/>
+</form>
+
+<script type="text/javascript">
+
+    var mousePositionControl = new ol.control.MousePosition({
+        coordinateFormate: ol.coordinate.createStringXY(4),
+        // projection:'EPSG:4326',
+        className:'custom-mouse-position',
+        target:document.getElementById('mouse-position'),
+        undefinedHTML:'&nbsp;'
+    });
+
+    var map = new ol.Map({
+        controls: ol.control.defaults().extend([new ol.control.MousePosition()]),
+        layers:[
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        view: new ol.View({
+            center: ol.proj.transform(
+                [106.70, 26.62], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 10
+        })
+    });
+
+   /* var map = new ol.Map({
+        // 在默认控件的基础上，再加上其他内置的控件
+        controls: ol.control.defaults().extend([
+            new ol.control.FullScreen(),
+            new ol.control.MousePosition(),
+            new ol.control.OverviewMap(),
+            new ol.control.ScaleLine(),
+            new ol.control.ZoomSlider(),
+            new ol.control.ZoomToExtent()
+        ]),
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        view: new ol.View({
+            center: ol.proj.transform(
+                [106.70, 26.62], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 10
+        })
+        //将鼠标x，y坐标转换成经纬度
+        map.addControl(new ol.control.MousePosition({coordinateFormat: ol.coordinate.createStringXY(8),projection: 'EPSG:4326'}));
+    });*/
+    var projectionSelect = document.getElementById('projection');
+    projectionSelect.addEventListener('change', function(event) {
+        mousePositionControl.setProjection(event.target.value);
+    });
+
+    var precisionInput = document.getElementById('precision');
+    precisionInput.addEventListener('change', function(event) {
+        var format = ol.coordinate.createStringXY(event.target.valueAsNumber);
+        mousePositionControl.setCoordinateFormat(format);
+    });
+</script>
+</body>
+</html>

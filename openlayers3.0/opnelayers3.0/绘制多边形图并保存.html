@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 800px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+</head>
+<body>
+<h2>My Map</h2>
+<div id="map" class="map"></div>
+<script type="text/javascript">
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        view: new ol.View({
+            center: ol.proj.transform(
+                [106.71, 26.63], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 10
+        })
+    });
+
+    // 添加一个绘制的线使用的layer
+    var lineLayer = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: 'red',
+                size: 1
+            })
+        })
+    })
+    map.addLayer(lineLayer);
+
+    map.addInteraction(new ol.interaction.Draw({
+        //按照这个流程，修改ol.interaction.Draw的构造参数type的值为'Point'，'Polygon',，'MultiPoint'，'MultiLineString'，'MultiPolygon'
+        // 或者 'Circle'就可以添加点，多边形，多个点，多条线，多个多边形，及圆。 可以自行修改验证。
+        type: 'Polygon',
+        source: lineLayer.getSource()    // 注意设置source，这样绘制好的线，就会添加到这个source里
+    }));
+</script>
+</body>
+</html>

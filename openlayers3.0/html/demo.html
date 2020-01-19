@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css"
+          type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <style>
+        #box{
+            color: aliceblue;
+            width: 110px;
+            height: 25px;
+            border: 1px solid #c5c5c5;
+            border-radius: 10px;
+            background-color: #797777;
+            text-align: center;
+            /* text-indent: 5px; */
+            font-size: 14px;
+            line-height: 25px;
+            cursor: pointer;
+        }
+        #down{
+            border: 1px solid #c5c5c5;
+            width: 90px;
+            margin-left: 5px;
+            display: none;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+            font-size: 14px;
+            border-bottom: 1px dashed #c5c5c5;
+            text-align: center;
+            height: 25px;
+            line-height: 25px;
+            color: aliceblue;
+            background-color: #333;
+            cursor: pointer;
+        }
+        li:hover{
+            background-color: #5c0e0e;
+        }
+    </style>
+</head>
+<body>
+
+<body>
+<div id="box">请选择手机名称</div>
+<div id="down">
+    <ul class="phones">
+        <li>华为</li>
+        <li>小米</li>
+        <li>oppo</li>
+        <li>vivo</li>
+        <li>爱疯</li>
+        <li>三星</li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    var obox = document.getElementById("box");
+    var odown = document.getElementById("down");
+    var oli = document.querySelectorAll("li");
+    console.log(oli);
+    var timer;
+    //当点击obox时，呈现出下拉列表的内容，给个延时效果
+    obox.onclick = function(){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            odown.style.display = "block";
+        },300)
+        ///选中列表中的某一项并将其呈现在box中,隐藏下拉列表
+        for(var i=0;i<oli.length;i++){
+            oli[i].n = i;
+            oli[i].onclick = function(){
+                obox.innerHTML = this.innerHTML;
+                odown.style.display = "none";
+                clearInterval(timer);
+            }
+        }
+    }
+</script>
+</body>
+</html>

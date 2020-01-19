@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 200px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+</head>
+<body>
+<h2>My Map</h2>
+<p>地图1</p>
+<div id="map1" class="map"></div>
+<p>地图2</p>
+<div id="map2" class="map"></div>
+<button onclick="swapMap()">地图交换</button>
+<script type="text/javascript">
+    // 创建一个视图
+    // 创建第一个地图
+    var map1 = new ol.Map({
+        layers: [
+            new ol.layer.Tile({source: new ol.source.OSM()})
+        ],
+        view: new ol.View({
+            center: [0, 0],
+            zoom: 2
+        }),
+        target: 'map1'
+    });
+
+    // 创建第二个地图
+    var map2 = new ol.Map({
+        layers: [
+            new ol.layer.Tile({source: new ol.source.OSM()})
+        ],
+        view: new ol.View({
+            center: [0, 0],
+            zoom: 2
+        }),
+        target: 'map2'
+    });
+
+    function swapMap() {
+        // 改变两个地图的容器
+        map1.setTarget('map2');
+        map2.setTarget('map1');
+    }
+</script>
+</body>
+</html>
