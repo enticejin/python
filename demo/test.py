@@ -12,3 +12,8 @@ a='abc'
 b='123456'
 print((a + b) * 2)
 '''
+
+string = 'isn\'t,it?'
+print(string)
+string2="c:\pograme files\data"
+print(r"c:\pograme files\data")
