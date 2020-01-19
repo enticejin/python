@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+    <title>加载静态图片</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <button id="showMap" value="显示" onclick="showMap1()">显示1</button>
+    <button id="showMap2" value="显示" onclick="showMap2()">显示2</button>
+    <script type="text/javaScript">
+       var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        target: 'map',
+        view: new ol.View({
+          center: [0, 0],
+          zoom: 2
+        })
+      });
+      var center = ol.proj.transform([104.06667, 30.66667], 'EPSG:4326', 'EPSG:3857');
+      var extent = [center[0]- 550*1000/2, center[1]-344*1000/2, center[0]+550*1000/2, center[1]+344*1000/2];
+      function showMap1(){
+        map.addLayer(new ol.layer.Image({
+        source: new ol.source.ImageStatic({
+            url: '../static/01.jpg', // 基础地图
+            imageExtent: extent     // 映射到地图的范围
+        })
+        }));
+        }
+        function showMap2(){
+        map.addLayer(new ol.layer.Image({
+        source: new ol.source.ImageStatic({
+            url: '../static/02.png', // 基础地图
+            imageExtent: extent     // 映射到地图的范围
+        })
+        }));
+        }
+    </script>
+  </body>
+</html>
