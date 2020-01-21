@@ -88,7 +88,6 @@ def fib(n):
 fib(2000)
 
 写一个返回斐波那契数列的列表（而不是把它打印出来）
-'''
 def fib2(num):
     result = []
     a, b = 0, 1
@@ -97,6 +96,68 @@ def fib2(num):
         a, b = b, a + b
     return result
 fib2(100)
+'''
+'''
+4.7. 函数定义的更多形式
+4.7.1. 参数默认值
+最有用的形式是对一个或多个参数指定一个默认值。这样创建的函数，
+可以用比定义时允许的更少的参数调用，比如:
+def ask_ok(prompt, retries = 4, reminder= 'Please try again!'):
+    while True:
+        ok = input(prompt)
+        if ok in ('y','ye','yes'):
+            return True
+        if ok in ('n','no','nop','nope'):
+            return False
+        if retries < 0:
+            raise ValueError('invalid user respose')
+        print(reminder)
+
+ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
+
+i =5
+def f(arg = i):
+    print(arg)
+
+f() #5
+i = 6
+f() #5 
+
+重要警告： 默认值只会执行一次。这条规则在默认值为可变对象（列表、字典以及大多数类实例）时很重要。
+比如，下面的函数会存储在后续调用中传递给它的参数:
+def function(a, L = []):
+    L.append(a)
+    return L
+print(function(1))
+print(function(2))
+print(function(3))
+#运行结果：
+[1]
+[1, 2]
+[1, 2, 3]
+
+如果你不想要在后续调用之间共享默认值，你可以这样写这个函数:
+def function(a, L = None):
+    if L is None:
+        L = []
+    L.append(a)
+    return L
+
+print(function(1))
+print(function(2))
+print(function(3))
+#运行结果
+[1]
+[2]
+[3]
+'''
+
+'''
+4.7.2. 关键字参数
+
+'''
+
+
 
 
 
