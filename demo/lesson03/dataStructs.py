@@ -175,5 +175,100 @@ for i in range(4):
 print(transposed)
 '''
 
+'''
+5.2. del 语句
+有一种方式可以从列表按照给定的索引而不是值来移除一个元素: 那就是 del 语句。 
+它不同于会返回一个值的 pop() 方法。 
+del 语句也可以用来从列表中移除切片或者清空整个列表（我们之前用过的方式是将一个空列表赋值给指定的切片）
+a = [1,2,3,4,5,6]
+#del a[0]
+print(a) #[2, 3, 4, 5, 6]
+#del a[1:3]
+print(a)
+del a[:]
+print(a)
+
+'''
+'''
+5.3. 元组和序列
+t = 123,456,'hello'
+print(t[0])
+print(t)
+u = t, ('abc','def','ghi')
+print(u)
+#运行结果
+123
+(123, 456, 'hello')
+((123, 456, 'hello'), ('abc', 'def', 'ghi'))
+
+v = ([1,2,3],['a','b','c'])
+print(v) #([1, 2, 3], ['a', 'b', 'c'])
+
+empty = ()
+singleTon = 'hello',
+print(len(empty))
+print(len(singleTon))
+print(singleTon)
+#运行结果
+0
+1
+('hello',)
+
+'''
+'''
+5.4. 集合
+花括号或 set() 函数可以用来创建集合。注意：要创建一个空集合你只能用 set() 而不能用 {}，
+因为后者是创建一个空字典
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket) #{'apple', 'pear', 'orange', 'banana'}
+print("orange" in basket) #True
+print('123' in basket) #False
+
+a = set('123123123654')
+b = set('chinese')
+print(a)
+print(b)
+print("**********")
+print(a - b) # letters in a but not in b
+print(a | b)
+print(a & b)
+print(a ^ b)  # letters in a or b but not both
+
+
+
+a = {x for x in 'abracadabra' if x not in 'abc'}
+print(a) #{'r', 'd'}
+'''
+'''
+5.5. 字典
+理解字典的最好方式，就是将它看做是一个 键: 值 对的集合，键必须是唯一的（在一个字典中）。
+一对花括号可以创建一个空字典：{} 。另一种初始化字典的方式是在一对花括号里放置一些以逗号分隔的键值对，
+而这也是字典输出的方式。
+tel = {'jack': 4098, 'space' : 4139}
+tel['guido'] = 4127
+print(tel) #{'jack': 4098, 'space': 4139, 'guido': 4127}
+print(tel['jack']) #4098
+print(sorted(tel)) #['guido', 'jack', 'space']
+print(list(tel)) #['jack', 'space', 'guido']
+print('guido' in tel) #True
+print('guido' not in tel) #False
+
+#dict() 构造函数可以直接从键值对序列里创建字典
+print(dict([('1','name'),('2','body'),('3','head')]))
+
+#字典推导式可以从任意的键值表达式中创建字典
+print({x : x ** 2 for x in (2, 4, 6)}) #{2: 4, 4: 16, 6: 36}
+#当关键字是简单字符串时，有时直接通过关键字参数来指定键值对更方便
+print(dict(sape=4139, guido=4127, jack=4098)) #{'sape': 4139, 'guido': 4127, 'jack': 4098}
+'''
+'''
+5.6. 循环的技巧
+当在字典中循环时，用 items() 方法可将关键字和对应的值同时取出
+knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+for key ,value in knights.items():
+    print(key, value)
+'''
+
+
 
 
