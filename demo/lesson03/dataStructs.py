@@ -102,5 +102,78 @@ John
 
 '''
 5.1.3. 列表推导式
+列表推导式提供了一个更简单的创建列表的方法。常见的用法是把某种操作应用于序列或可迭代对象的每个元素上，
+然后使用其结果来创建列表，或者通过满足某些特定条件元素来创建子序列。
+squares = []
+for x in range(10):
+    squares.append(x ** 2)
+
+print(squares) #[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+squares = list(map(lambda x: x ** 2,range(10)))
+print(squares) #[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+squares = [x ** 2 for x in range(10)] #这种写法更加简洁易读
+print(squares) #[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+print(([(x, y) for x in [1,2,3] for y in [3,1,4] if x != y])) #[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+#上面的例子等价于
+combs = []
+for x in [1,2,3]:
+    for y in [3,1,4]:
+        if x != y:
+            combs.append((x , y))
+print(combs)
+vec = [-4, -2, 0, 2, 4]
+print([x**2 for x in vec]) #[16, 4, 0, 4, 16]
+print([abs(x) for x in vec]) #[4, 2, 0, 2, 4]
+print([x for x in vec if x >= 0]) #[0, 2, 4]
+
+freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
+print([weapon.strip() for weapon in freshfruit]) #['banana', 'loganberry', 'passion fruit']
+print([(x, x **2) for x in range(6)]) #[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+
+vec = [[1,2,3], [4,5,6], [7,8,9]]
+print([num for elem in vec for num in elem]) #[1, 2, 3, 4, 5, 6, 7, 8, 9]
+#列表推导式可以使用复杂的表达式和嵌套函数
+from math import pi
+print([str(round(pi, i)) for i in range(1,6)]) #['3.1', '3.14', '3.142', '3.1416', '3.14159']
 '''
+'''
+5.1.4嵌套的列表推导式
+列表推导式中的初始表达式可以是任何表达式，包括另一个列表推导式
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+]
+print(matrix)
+#矩阵的行换成列1：
+print([[row[i] for row in matrix] for i in range(4)])
+#矩阵的行换成列2：
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+]
+transposed = []
+for i in range(4):
+    transposed.append([row[i] for row in matrix])
+print(transposed)
+#矩阵的行换成列3：
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+]
+transposed = []
+for i in range(4):
+    transposed_row = []
+    for row in matrix:
+        transposed_row.append(row[i])
+    transposed.append(transposed_row)
+print(transposed)
+'''
+
+
 
