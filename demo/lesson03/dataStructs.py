@@ -268,7 +268,16 @@ knights = {'gallahad': 'the pure', 'robin': 'the brave'}
 for key ,value in knights.items():
     print(key, value)
 '''
+'''
+5.7. 深入条件控制
+while 和 if 条件句中可以使用任意操作，而不仅仅是比较操作。
 
+比较操作符 in 和 not in 校验一个值是否在（或不在）一个序列里。操作符 is 和 is not 比较两个对象是不是同一个对象，这
+只对像列表这样的可变对象比较重要。所有的比较操作符都有相同的优先级，且这个优先级比数值运算符低。
+string1,string2,string3 = "" , "TheuesDay" , "1234556"
+non_null  = string1 or string2 or string3
+print(non_null) #TheuesDay
+'''
 
 
 
