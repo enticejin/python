@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>流程图</title>
+</head>
+<body>
+<ul id="process-list" class="process-list">
+    <li class="node process-start">
+        <div class="left">
+            <p style="margin-bottom: 5px">开始</p>
+            <div class="pot"></div>
+        </div>
+    </li>
+    <li class="node process-node cur">
+        <div class="left">
+            <div class="platform" title="">节点1</div>
+        </div>
+        <div class="middle">
+            <div class="line"></div>
+        </div>
+        <div class="right-l">
+            <p class="type">审批方式xx</p>
+            <table class="node-table">
+                <thead>
+                <tr>
+                    <td style="max-width: 190px;">审批单位</td>
+                    <td style="max-width: 90px">审批人</td>
+                    <td>审批状态</td>
+                    <td>时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="max-width: 190px" title="">文本文本文本文本文本</td>
+                    <td style="max-width: 90px" title="">张三</td>
+                    <td>待审批</td>
+                    <td>2019-10-12 12:30:30</td>
+                </tr>
+                <tr>
+                    <td style="max-width: 190px" title="">文本文本文本</td>
+                    <td style="max-width: 90px" title="">张三三</td>
+                    <td>待审批</td>
+                    <td>-</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="current">当前节点</div>
+        </div>
+    </li>
+    <li class="node process-node wait">
+        <div class="left">
+            <div class="platform" title="">节点2</div>
+        </div>
+        <div class="middle">
+            <div class="line"></div>
+        </div>
+        <div class="right-l">
+            <p class="type">审批方式xx</p>
+            <table class="node-table">
+                <thead>
+                <tr>
+                    <td style="max-width: 190px">审批单位</td>
+                    <td style="max-width: 90px">审批人</td>
+                    <td>审批状态</td>
+                    <td>时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="max-width: 190px" title="">文本文本文</td>
+                    <td style="max-width: 90px" title="">张三</td>
+                    <td>待审批</td>
+                    <td>-</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <li class="node process-node wait">
+        <div class="left">
+            <div class="platform" title="">节点3</div>
+        </div>
+        <div class="middle">
+            <div class="line"></div>
+        </div>
+        <div class="right-l">
+            <p class="type">审批方式xx</p>
+            <table class="node-table">
+                <thead>
+                <tr>
+                    <td style="max-width: 190px">审批单位</td>
+                    <td style="max-width: 90px">审批人</td>
+                    <td>审批状态</td>
+                    <td>时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="max-width: 190px" title="">文本文本文本文本文本</td>
+                    <td style="max-width: 90px" title="">张三</td>
+                    <td>待审批</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td style="max-width: 190px" title="">文本文本文本文本文本</td>
+                    <td style="max-width: 90px" title="">张三</td>
+                    <td>待审批</td>
+                    <td>-</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <li class="node process-end wait">
+        <div class="left">
+            <div class="pot"></div>
+            <p style="line-height: 24px">流程结束</p>
+        </div>
+    </li>
+</ul>
+
+<style>
+    p{
+        margin: 0;
+    }
+    .process-list{
+        font-size: 0;
+        width: 950px;
+        margin: 0 auto;
+    }
+    .process-list li{
+        position: relative;
+    }
+    .process-list li.node{
+        margin-bottom: 60px;
+    }
+    .process-list li.line{
+        height: 80px;
+    }
+    .process-start,.process-end{
+        height: 36px !important;
+    }
+    .process-start p,.process-end p{
+        font-size: 14px;
+    }
+    .process-list li div.pot{
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 20px;
+        border: 1px solid #333;
+        background: #fff;
+    }
+    .process-list li.line div.line{
+        display: inline-block;
+        height: 80px;
+        width: 2px;
+        border-left: 1px solid #333;
+        margin-left: 1px;
+    }
+    .process-list li div.left{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        display: inline-block;
+        width: 400px;
+        text-align: center;
+        z-index: 9;
+    }
+    .process-list li.process-node div.right-l:before{
+        content: '';
+        position: absolute;
+        bottom: 50%;
+        left: 199px;
+        width: 1px;
+        height: 50%;
+        background: #333;
+        padding-top: 60px;
+    }
+    .process-list li.process-end div.left{
+        position: absolute;
+        top: 0 !important;
+        transform: translateY(0) !important;
+    }
+
+    .process-list li.process-end div.left:before{
+        content: '';
+        position: absolute;
+        bottom: 35px;
+        left: 199px;
+        width: 1px;
+        height: 65px;
+        background: #333;
+    }
+
+    .process-list li.process-node div.right-l:after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 199px;
+        width: 1px;
+        height: 50%;
+        background: #333;
+    }
+
+    .process-list li div.middle{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 199px;
+        display: inline-block;
+        width: 250px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        z-index: 1;
+    }
+    .process-list li div.right-l{
+        margin-left: 450px;
+        z-index: 1;
+        background: #fff;
+    }
+    .process-list li div.right-l p{
+        font-size: 14px;
+        padding: 5px 25px;
+    }
+
+    .node-table{
+        font-size: 14px !important;
+        border: 1px solid #333;
+    }
+    .node-table thead{
+        font-weight: bold;
+    }
+    .node-table td{
+        padding: 5px 10px;
+        vertical-align: top;
+    }
+
+    .process-list li div.right-l div.current{
+        font-size: 14px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -44px;
+        color: red;
+    }
+    .process-list li div.right-l div.current::before{
+        content: '';
+        width: 14px;
+        height: 14px;
+        /*background: url("../../assets/img/icon_arrow_right.png") no-repeat;*/
+        background-size: 14px 14px;
+        position: absolute;
+        top: 3px;
+        right: -25px;
+    }
+    .process-list li div.right-l p.type{
+        position: absolute;
+        top: -30px;
+        left: 430px;
+    }
+    .process-list li div.middle div.line{
+        display: inline-block;
+        width: 250px;
+        height: 1px;
+        text-align: center;
+        border-top: 1px dashed #333;
+    }
+    .process-list li.process-node div.platform{
+        max-width: 300px;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 10px 15px;
+        border: 1px solid #333;
+        border-radius: 999px;
+        font-size: 14px;
+        background: #fff;
+        overflow: hidden;
+        word-wrap: break-word;
+        /*white-space: nowrap;*/
+    }
+
+    .process-list li.cur div.right-l:after{
+        background: #bbbaba;
+    }
+    .process-list li.wait{
+        color: #bbbaba;
+    }
+    .process-list li.wait div.platform{
+        border-color: #bbbaba;
+    }
+    .process-list li.wait div.line{
+        border-color: #bbbaba;
+    }
+    .process-list li.wait div.middle div.line{
+        border-color: #bbbaba;
+    }
+    .process-list li.wait div.right-l>table{
+        border-color: #bbbaba;
+    }
+    .process-list li.wait div.right-l:before{
+        background: #bbbaba;
+    }
+    .process-list li.wait div.right-l:after{
+        background: #bbbaba;
+    }
+    .process-list li.wait div.left:before{
+        background: #bbbaba;
+    }
+    .process-list li.wait div.pot{
+        border-color: #bbbaba;
+    }
+    .process-list li p.simple{
+        color: #bbbaba;
+    }
+</style>
+
+<script>
+    //未进行的流程置灰
+    $('#process-list li.cur').nextAll().addClass('wait');
+    //当前节点添加说明
+    $('#process-list li.cur').find('.right-l').append('<div class="current">当前节点</div>');
+</script>
+</body>
+</html>

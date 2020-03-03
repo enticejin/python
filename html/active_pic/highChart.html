@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RTLE配置结构图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.rect {
+            height: 40px;
+            border-radius: 10px;
+            background: pink;
+            text-align: center;
+            padding: 5px;
+            margin: 5px 5px;
+        }
+
+        div.rect:hover {
+            cursor: pointer;
+        }
+
+        div.rect p {
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        div.flex {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        div.flex > div {
+            width: 25%;
+        }
+
+        div.arrow {
+            margin: 0 10px 0;
+        }
+
+        div.arrow-body {
+            width: 20px;
+            height: 50px;
+            background: #ccc;
+            margin: 0 auto;
+        }
+
+        div.arrow-footer {
+            width: 0;
+            height: 0;
+            border-width: 30px 30px 0;
+            border-style: solid;
+            border-color: #ccc transparent transparent; /*灰 透明 透明 */
+            margin: 0 auto;
+        }
+
+        #container {
+            width: 650px;
+            /*height: 450px;*/
+            margin: 50px auto;
+            /*padding-top: 10px;*/
+            /*padding-right: 10px;*/
+            /*overflow-y: auto*/
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    let data = {
+        root: [
+            {title: 'RTLE系统配置流程', color: 'red'}
+        ],
+        child1: [
+                {title: '1-RTLE配置', color: '#cca057'}
+        ],
+        child2: [
+            {title: '2-用户文件管理'},
+            {title: '3-平面图管理'},
+            {title: '4-安装基站配置程序和安装标签配置程序'},
+
+        ],
+        child3: [
+            {title: '5-基站配置'},
+            {title: '6-标签配置'},
+            {title: '7-区域配置'},
+            {title: '8-点击定位演示'}
+        ],
+    };
+
+    let pic = {
+        load(domName, datas) {
+            let num = Object.keys(datas).length;
+            Object.keys(datas).forEach((i, j) => {
+                pic.rect('container', datas[i], (j + 1) === num);
+            });
+            this.bindEvents()
+        },
+        rect(domName, data, isEnd) {
+            let div = document.createElement("div");
+            div.classList.add("flex");
+            for (let i in data) {
+                div.innerHTML += '<div>\n' +
+                    '            <div class="rect" style="background: ' + data[i].color + '" data="' + data[i].title + '" p-data="' + data.root + '">\n' +
+                    '                <p>' + data[i].title + '</p>\n' +
+                    '            </div>\n' +
+                    '        </div>';
+            }
+            document.getElementById(domName).appendChild(div);
+            if (!isEnd) {
+                let arrow = document.createElement("div");
+                arrow.classList.add("arrow");
+                arrow.innerHTML +=
+                    '        <div class="arrow-body"></div>\n' +
+                    '        <div class="arrow-footer"></div>\n';
+                document.getElementById(domName).appendChild(arrow)
+            }
+        },
+        bindEvents() {
+            let rect = document.getElementsByClassName('rect');
+            for (let i = 0, rule; rule = rect[i++];) {
+                rule.addEventListener('click', () => {
+                    let title = rule.getAttribute('data');
+                    //弹出title
+                    // alert(title);
+                });
+            }
+        }
+    };
+
+    window.onload = function () {
+        pic.load('container', data);
+    };
+</script>
+</body>
+</html>
