@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Q6FV3ir7hca2819OFrdEDSWoMdN1tynN"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var data = [
+[-6.45088505909808,-4.074514691977289],
+[-6.437540466115764,-4.096227978495562],
+[-6.357573506138216,-4.081842988361433],
+[-6.451358047211262,-4.08535238206338],
+[-6.447238056716728,-4.048679406348379],
+[-6.365763367929526,-4.039274928672686],
+[-6.445789783806243,-4.05909278805146],
+[-6.368762161305252,-4.061418960731936],
+[-6.519964982618583,-4.060084970069991],
+[-6.379462055647038,-4.125084672843605],
+[-6.378143252973584,-4.042442923569436],
+[-6.382056962084248,-4.118840841623651],
+[-6.445857056410682,-4.093156420093458],
+[-6.313935711962915,-4.067631050789076],
+[-6.2919800991137675,-4.104835907012992],
+[-6.330127700832449,-4.0303746261006195],
+[-6.345571184364936,-4.035794587167744],
+[-6.329713837983073,-4.09902487723894],
+[-6.334849443893422,-4.087449460089163],
+[-6.31829276835661,-4.0528325391936155],
+[-6.406346948759772,-4.125926633026005],
+[-6.271899437695937,-4.04432970077347],
+[-6.359126694681668,-4.0706380019239745],
+[-6.374226391191895,-4.059363763447025],
+[-6.372538849859714,-4.051759333784135],
+[-6.316211165862624,-4.091619630477991],
+[-6.336866594781487,-4.066657330740118],
+[-6.3259159820153,-4.067294442097636],
+[-6.395770835402265,-4.1189568038417885],
+[-6.393157381605433,-4.031557663718635],
+[-6.333308735542442,-4.105097011815236],
+[-6.338564368960536,-4.085081899654475],
+[-6.427512819475085,-4.033167040805264],
+[-6.412201467107315,-4.030790746173198],
+[-6.316285817838726,-3.9897088246514114],
+[-6.324308116007213,-4.015735347524268],
+[-6.373229641444911,-4.025537548377838],
+[-6.284949058333021,-4.044191858506572],
+[-6.391438000010293,-4.05804168470504],
+[-6.391597373786543,-4.065040730397898],
+[-6.337715377077815,-4.066210220295602],
+[-6.371978680349667,-4.074722694547514],
+[-6.303138429485589,-4.082823453767533],
+[-6.330546118099542,-4.007329250462245],
+[-6.375101461888492,-4.0817533241579955],
+[-6.403771666845632,-4.084028056972324],
+[-6.405976627395888,-4.067362230353293],
+[-6.440145767372387,-3.9894954002792145],
+[-6.328866455882004,-4.087640047876256],
+[-6.4221252155523985,-4.0254703120424065],
+[-6.367863918990928,-4.013494194043985],
+[-6.222655275693648,-4.03177608988001]
+];
+
+var clusterNumber = 6;
+// See https://github.com/ecomfe/echarts-stat
+var step = ecStat.clustering.hierarchicalKMeans(data, clusterNumber, true);
+var result;
+
+option = {
+    timeline: {
+        top: 'center',
+        right: 35,
+        height: 300,
+        width: 10,
+        inverse: true,
+        playInterval: 2500,
+        symbol: 'none',
+        orient: 'vertical',
+        axisType: 'category',
+        autoPlay: true,
+        label: {
+            show: false
+        },
+        data: []
+    },
+    baseOption: {
+        title: {
+            text: 'Process of Clustering',
+            subtext: 'By ecStat.hierarchicalKMeans',
+            sublink: 'https://github.com/ecomfe/echarts-stat',
+            left: 'center'
+        },
+        xAxis: {
+            type: 'value'
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            type: 'scatter'
+        }]
+    },
+    options: []
+};
+
+for (var i = 0; !(result = step.next()).isEnd; i++) {
+
+    option.options.push(getOption(result, clusterNumber));
+    option.timeline.data.push(i + '');
+
+}
+
+function getOption(result, k) {
+    var clusterAssment = result.clusterAssment;
+    var centroids = result.centroids;
+    var ptsInCluster = result.pointsInCluster;
+    var color = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'];
+    var series = [];
+    for (i = 0; i < k; i++) {
+        series.push({
+            name: 'scatter' + i,
+            type: 'scatter',
+            animation: false,
+            data: ptsInCluster[i],
+            markPoint: {
+                symbolSize: 29,
+                label: {
+                    show: false
+                },
+                itemStyle: {
+                    opacity: 0.7
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: function (params) {
+                            return Math.round(params.data.coord[0] * 100) / 100 + '  ' +
+                                Math.round(params.data.coord[1] * 100) / 100 + ' ';
+                        },
+                        color: '#000'
+                    }
+                },
+                data: [{
+                    coord: centroids[i]
+                }]
+            }
+        });
+    }
+
+    return {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        series: series,
+        color: color
+    };
+};
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
