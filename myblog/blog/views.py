@@ -40,3 +40,15 @@ def index(request):
     }
     #把上下文传递到模板中
     return render(request, 'index.html', context)
+
+def index_article(request):
+    #对Article进行声明并实例化，然后生成对象allArticles
+    allArticles = Article.objects.all()
+    #把查询到的对象装到上下文
+    context = {
+        'allArticles': allArticles,
+    }
+    #把上下文传到模板页面index。html中
+    return render(request, 'index_article.html', context)
+
+    

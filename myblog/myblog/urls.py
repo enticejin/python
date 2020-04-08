@@ -23,7 +23,8 @@ from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.index_article),
+    path('index/', views.index),
     path('ueditor/', include('DjangoUeditor.urls')), #添加DjangoUeditor的URL
     re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}), #增加此行
 ]
