@@ -65,7 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
+            ]
         },
     },
 ]
@@ -129,11 +129,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+#设置静态文件路径
 STATIC_URL = '/static/'
-#这个是设置静态文件夹目录的路径
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-#设置文件上传路径，图片上传、文件上传都会存放在此目录里
+
+#设置文件上传路径
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -22,9 +22,24 @@ from django.conf import settings
 from blog import views
 
 urlpatterns = [
+    #管理后台
     path('admin/', admin.site.urls),
-    path('', views.index_article),
-    path('index/', views.index),
+    #文章首页
+    path('', views.index, name='index'),
+    #未修改前的首页
+    path('index1/', views.index1),
+    #修改后的首页
+    #path('index/', views.index, name="index"),
+    #列表页
+    path('list-<int:lid>.html', views.list, name='list'),
+    #内容页
+    path('show-<int:sid>.html', views.show, name='show'),
+    #标签列表页
+    path('tag/<tag>', views.tag, name='tags'),
+    #搜索列表页
+    path('s/', views.search, name='search'),
+    #联系我们单页
+    path('about/', views.about, name='about'),
     path('ueditor/', include('DjangoUeditor.urls')), #添加DjangoUeditor的URL
     re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}), #增加此行
 ]
