@@ -1,0 +1,19 @@
+{
+  "name": "openlayers6.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ol": "^6.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "start": "parcel test/index.html",
+    "build": "parcel build --public-url . index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
