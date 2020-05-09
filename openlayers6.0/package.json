@@ -11,6 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
     "start": "parcel test/index.html",
+    "start": "parcel Dynatic-data/index.html",
+    "start": "parcel key/index.html",
     "build": "parcel build --public-url . index.html"
   },
   "keywords": [],
