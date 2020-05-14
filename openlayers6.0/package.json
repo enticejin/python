@@ -14,6 +14,7 @@
     "start": "parcel Dynatic-data/index.html",
     "start": "npm start Terminal启动html页面",
     "start": "parcel key/index.html",
+    "start": "parcel click-select/index.html",
     "build": "parcel build --public-url . index.html"
   },
   "keywords": [],
