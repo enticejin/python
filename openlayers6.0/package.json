@@ -11,10 +11,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
     "start": "parcel test/index.html",
-    "start": "parcel Dynatic-data/index.html",
     "start": "npm start Terminal启动html页面",
     "start": "parcel key/index.html",
     "start": "parcel click-select/index.html",
+    "start": "parcel Dynatic-data/index.html",
+    "start": "parcel downloadPNG/index.html",
     "build": "parcel build --public-url . index.html"
   },
   "keywords": [],
