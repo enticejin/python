@@ -6,7 +6,7 @@ def functionX(xp):
     a = -0.03275
     b = - 0.1466
     c = -0.8099
-    return xp * xp * a + b * xp + c
+    return xp ** 2 * a + b * xp + c
 
 
 
