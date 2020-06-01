@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.utils import formataddr
 
 my_sender = 'www.403367632@qq.com'  # 发件人邮箱账号
-my_pass = 'owzosdknhrqmbehg'  # 发件人邮箱密码
+my_pass = '1995owzosdknhrqmbehg0404'  # 发件人邮箱密码
 my_user = 'gejinjin0404@foxmail.com'  # 收件人邮箱账号，我这边发送给自己
 
 
