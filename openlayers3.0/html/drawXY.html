@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="scrollBody" style="position:absolute;top:0;bottom:0;left:0;right:0;overflow:scroll;height:300px;">
+    <div style="font-size:20px;height:100px;">
+      1
+    </div>
+    <div style="font-size:20px;height:100px;">
+      2
+    </div>
+    <div style="font-size:20px;height:100px;">
+      3
+    </div>
+    <div style="font-size:20px;height:100px;">
+      4
+    </div>
+    <div style="font-size:20px;height:100px;">
+      5
+    </div>
+  </div>
+  <div style="position:relative;top:350px;">
+    <button onClick="scrollToTop()">按钮1</button>
+    <button>按钮2</button>
+  </div>
+  <script>
+      function scrollToTop(){
+        //   这里边可以写一些逻辑，比如偶数行一个一个的置顶，不如状态等于0的一个一个的置顶！
+          document.getElementById('scrollBody').scrollTop = 200;
+      }
+  </script>
+</body>
+
+</html>
