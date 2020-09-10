@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js带按钮上下滚动效果</title>
+<style type="text/css">
+ul{
+ margin:0;
+ padding:0;
+ list-style:none;
+ height:100000px;
+}
+li{
+ margin:0;
+ padding:0;
+ width:100px;
+ height:100px;
+ display:block;
+ float:top;
+ margin-bottom:5px;
+ background:#009900;
+}
+#img_bag{
+ width:110px;
+ height:600px;
+ background:#F2F2F2;
+ margin:0 auto;
+ text-align:center;
+}
+#img_bag #img{
+ width:100px;
+ height:525px;
+ background:#969696;
+ overflow:hidden;
+ margin:auto;
+}
+</style>
+</head>
+<body>
+<div id="img_bag">
+ <a href="javascript:void(0)" onmousedown="moveTop()">
+ <img src="01.jpg" style="width: 30px;height: 30px" border="0" /></a>
+ <div id="img" style="overflow-y:scroll;">
+ <ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+  <li>11</li>
+  <li>12</li>
+ </ul>
+ </div>
+ <a href="javascript:void(0)"  onmousedown="moveBottom()">
+ <img src="01.jpg" style="width: 30px;height: 30px" border="0" /></a>
+</div>
+<script type="text/javascript">
+function $(obj){
+ //获取指定对象
+ return document.getElementById(obj);
+}
+var maxHeight=$("img").getElementsByTagName("ul")[0].getElementsByTagName("li").length*105;
+//滚动图片的最大高度
+var targety = 211;
+//一次滚动距离
+var dx;
+var a=null;
+function moveTop(){
+ var le=parseInt($("img").scrollTop);
+ if(le>211){
+ targety=parseInt($("img").scrollTop)-211;
+ }else{
+ targety=parseInt($("img").scrollTop)-le-1;
+ }
+ scTop();
+}
+function scTop(){
+ dx=parseInt($("img").scrollTop)-targety;
+ $("img").scrollTop-=dx*.3;
+ clearScroll=setTimeout(scTop,50);
+ if(dx*.3<1){
+ clearTimeout(clearScroll);
+ }
+}
+function moveBottom(){
+ var le=parseInt($("img").scrollTop)+211;
+ var maxL=maxHeight-600;
+ if(le<maxL){
+ targety=parseInt($("img").scrollTop)+211;
+ }else{
+ targety=maxL
+ }
+ scBottom();
+}
+function scBottom(){
+ dx=targety-parseInt($("img").scrollTop);
+ $("img").scrollTop+=dx*.3;
+ a=setTimeout(scBottom,50);
+ if(dx*.3<1){
+ clearTimeout(a)
+ }
+}
+</script>
+</body>
+</html>
