@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hide</title>
+    <script src="../js/jquery.js"></script>
+</head>
+<body>
+    <p id="p1">点击我消失</p>
+    <p id="p2">点击我也消失</p>
+    <p id="p3">点击我还是消失</p>
+    <div id="btnDiv1">
+
+    </div>
+    <input type="hidden" id="inputSelect">
+    <button id="button1">点我Button</button>
+<script>
+
+    $(document).ready(function () {
+        $('#button1').click(function () {
+            $('#btnDiv1').html(
+                '<select id="selectNum">' +
+                '<option>1</option>' +
+                '<option>2</option>' +
+                '<option>3</option>' +
+                '<option>4</option>' +
+                '<option>5</option>' +
+                ' </select>'
+            )
+            function  selectNum() {
+                const hos = $("#selectNum option:selected").val();
+                return hos;
+            }
+            $('inputSelect').val(selectNum())
+        })
+        $('p').dblclick(function () {
+            $(this).hide();
+        })
+        $('#p1').mouseenter(function () {
+            //console.log('现在你在第一个p标签上');
+        })
+        $('#p2').mouseleave(function () {
+            //console.log('现在你离开了第二个p标签');
+        })
+        $('#p3').mousedown(function () {
+            //console.log("现在你按下了第三个p标签")
+        })
+    });
+
+</script>
+</body>
+</html>

@@ -3,8 +3,12 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/mysite" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gitee" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gitee/day04/脚本" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gitee/day06" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (pyweb)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>楼层跳跃</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            ul,
+            li {
+                list-style: none;
+            }
+
+            div {
+                width: 100%;
+                height: 500px;
+                line-height: 500px;
+                font-size: 100px;
+                color: aliceblue;
+                text-align: center
+                /* border: 1px solid #ccc; */
+            }
+
+            #side-nav {
+                position: fixed;
+                left: 10px;
+                top: 100px;
+            }
+
+            #side-nav li {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                font-weight: 900;
+                text-align: center;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 2px 1px 3px 0 rgb(26, 25, 25);
+                cursor: pointer;
+                margin-bottom: 10px;
+            }
+
+            .yellow {
+                background-color: yellow !important;
+            }
+
+            #box1 {
+                background-color: red;
+            }
+
+            #box2 {
+                background-color: lightgreen;
+            }
+
+            #box3 {
+                background-color: lightskyblue;
+            }
+
+            #box4 {
+                background-color: lawngreen;
+            }
+
+            #box5 {
+                background-color: lightcoral;
+            }
+
+            #box6 {
+                background-color: lightskyblue;
+            }
+
+            #box7 {
+                background-color: red;
+            }
+
+            #box8 {
+                background-color: lawngreen;
+            }
+
+            #box9 {
+                background-color: lightcoral;
+            }
+
+            #box10 {
+                background-color: lightgreen;
+            }
+        </style>
+        <script type="text/javascript">
+            window.onload = function() {
+                /*
+
+                    需求：楼层跳跃
+
+                        *　把楼层的高度设置成屏幕的高度
+                        * 点击按钮可以跳转到对应楼层
+                        * 滚动滑轮，到达临界点的时候，按钮跟着高亮显示
+                */
+
+                var box = document.getElementById('box');
+                var lous = box.getElementsByTagName('div');//楼层
+                var sideNav = document.getElementById('side-nav');
+                var btns = sideNav.getElementsByTagName('li');//按钮
+
+
+                //1.把楼层的高度设置成屏幕的高度
+                for(var i = 0; i < lous.length; i++) {
+                    lous[i].style.height = window.innerHeight + 'px';
+                }
+
+                //2.点击按钮可以跳转到对应楼层
+                for(var i = 0; i < btns.length; i++) {
+                    //绑定索引
+                    btns[i].index = i;
+                    btns[i].onclick = function() {
+//                      console.log(this.index);
+                        //排他
+                        for(var j = 0; j < btns.length; j++) {
+                            btns[j].className = '';
+                        }
+                        this.className = 'yellow';
+                        var ih = lous[this.index].offsetTop;
+                        window.scrollTo(0,ih);
+                    }
+                }
+
+                //3.滚动滑轮，到达临界点的时候，按钮跟着高亮显示
+                window.onscroll = function() {
+                    var scrollTop = window.scrollY;//滚动距离
+                    for(var i = 0; i < lous.length; i++) {
+                        if(scrollTop >= lous[i].offsetTop) {
+                            console.log(i);
+                            //排他 设置高亮
+                            for(var j = 0; j < btns.length; j++) {
+                                btns[j].className = '';
+                            }
+                            btns[i].className = 'yellow';
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <div id="box1">A</div>
+            <div id="box2">B</div>
+            <div id="box3">C</div>
+            <div id="box4">D</div>
+            <div id="box5">E</div>
+            <div id="box6">F</div>
+            <div id="box7">G</div>
+            <div id="box8">H</div>
+            <div id="box9">I</div>
+            <div id="box10">J</div>
+        </div>
+        <nav>
+            <ul id="side-nav">
+                <li class="yellow">F1</li>
+                <li>F2</li>
+                <li>F3</li>
+                <li>F4</li>
+                <li>F5</li>
+                <li>F6</li>
+                <li>F7</li>
+                <li>F8</li>
+                <li>F9</li>
+                <li>F10</li>
+            </ul>
+        </nav>
+    </body>
+
+</html>

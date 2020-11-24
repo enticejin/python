@@ -1,0 +1,10 @@
+2020-09-10 11:23:23,641 - D:/python/gitee/day05/logutils.py[line:38] - DEBUG: debug
+2020-09-10 11:23:23,642 - D:/python/gitee/day05/logutils.py[line:39] - INFO: info
+2020-09-10 11:23:23,642 - D:/python/gitee/day05/logutils.py[line:40] - WARNING: 警告
+2020-09-10 11:23:23,642 - D:/python/gitee/day05/logutils.py[line:41] - ERROR: 报错
+2020-09-10 11:23:23,642 - D:/python/gitee/day05/logutils.py[line:42] - CRITICAL: 严重
+2020-09-10 11:34:01,001 - D:/python/gitee/day05/logutils.py[line:38] - DEBUG: debug
+2020-09-10 11:34:01,002 - D:/python/gitee/day05/logutils.py[line:39] - INFO: info
+2020-09-10 11:34:01,002 - D:/python/gitee/day05/logutils.py[line:40] - WARNING: 警告
+2020-09-10 11:34:01,002 - D:/python/gitee/day05/logutils.py[line:41] - ERROR: 报错
+2020-09-10 11:34:01,003 - D:/python/gitee/day05/logutils.py[line:42] - CRITICAL: 严重

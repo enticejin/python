@@ -3,8 +3,8 @@ import turtle
 pen = turtle.Pen()
 pen.speed(100)
 
-width = 60  # 格子宽度
-count = 14  # 横向纵向格子数
+width = 10  # 格子宽度
+count = 37  # 横向纵向格子数
 
 o = width * count / 2  # 开始绘制原点
 
