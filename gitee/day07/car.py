@@ -121,7 +121,7 @@ def transform(img, point_set_0, point_set_1):
 
 
 def main():
-    path = os.getcwd()+"\\img\\0.jpg"
+    path = os.getcwd()+"\\img\\3.jpg"
     # 图像预处理
     img, img_Gas, img_B, img_G, img_R, img_gray, img_HSV = imgProcess(path)
     # 初步识别
