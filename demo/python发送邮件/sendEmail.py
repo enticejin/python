@@ -1,16 +1,15 @@
-
 import smtplib,random
 from email.mime.text import MIMEText
 from email.utils import formataddr
 
 my_sender = 'www.403367632@qq.com'  # 发件人邮箱账号
-my_pass = '1994owzosdknhrqmbehg0525'  # 发件人邮箱密码
-my_user = 'gejinjin0404@foxmail.com'  # 收件人邮箱账号，我这边发送给自己
+my_pass = 'gjjowzosdknhrqmbehgGJJ'  # 发件人access_token
+my_user = 'gejin9544@outlook.com'  # 收件人邮箱账号，我这边发送给自己
 
 
 def generate_verification_code():
 
-    ''' 随机生成6位的验证码 '''
+    #随机生成6位的验证码
 
     code_list = []
 
@@ -40,8 +39,8 @@ def mail():
     try:
         code = generate_verification_code()
         msg = MIMEText('验证码是： '+code, 'plain', 'utf-8')
-        msg['From'] = formataddr(["your father", my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
-        msg['To'] = formataddr(["your grandpa", my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号
+        msg['From'] = formataddr(["葛 进进", my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
+        msg['To'] = formataddr(["亚瑟", my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号
         msg['Subject'] = "邮件登录验证"  # 邮件的主题，也可以说是标题
 
         server = smtplib.SMTP_SSL("smtp.qq.com", 465)  # 发件人邮箱中的SMTP服务器，端口是25
@@ -58,4 +57,3 @@ if ret:
     print("邮件发送成功")
 else:
     print("邮件发送失败")
-
