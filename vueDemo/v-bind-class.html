@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>对象语法</title>
+</head>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+<body>
+
+<div class="static" v-bind:class="{active: isActive, 'text-danger': hasError}"></div>
+</body>
+<script>
+    data: {
+            isActive: true,
+            hasError: false
+        }
+</script>
+</html>

@@ -5,7 +5,6 @@
 
 from win32com.client import Dispatch, constants, gencache
 
-
 def doc2pdf(input, output):
     w = Dispatch('Word.Application')
     try:
@@ -27,8 +26,8 @@ def GenerateSupport():
 
 
 def main():
-    input = r'D:\test\LCRTLS3.02021.docx'
-    output = r'D:\test\LCRTLS3.02021.pdf'
+    input = r'D:\test\LC.docx'
+    output = r'D:\test\联创UWB定位系统操作手册.pdf'
     GenerateSupport()
     rc = doc2pdf(input, output)
     if rc:

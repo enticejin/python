@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 from email.utils import formataddr
 
 my_sender = 'www.403367632@qq.com'  # 发件人邮箱账号
-my_pass = 'gjjowzosdknhrqmbehgGJJ'  # 发件人access_token
+my_pass = 'owzosdknhrqmbehg'  # 发件人access_token
 my_user = 'gejin9544@outlook.com'  # 收件人邮箱账号，我这边发送给自己
 
 
