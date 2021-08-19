@@ -85,7 +85,11 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
+<<<<<<< HEAD
             'NAME': 'blog',    #你的数据库名称
+=======
+            'NAME': 'test',    #你的数据库名称
+>>>>>>> 383f808fd963795b43ab18fda8da4ffdabcd847d
             'USER': 'root',   #你的数据库用户名
             'PASSWORD': '123456', #你的数据库密码
             'HOST': '', #你的数据库主机，留空默认为localhost

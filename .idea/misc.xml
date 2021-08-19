@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptSettings">
+<<<<<<< HEAD
     <option name="languageLevel" value="JSX" />
+=======
+    <option name="languageLevel" value="ES6" />
+>>>>>>> 383f808fd963795b43ab18fda8da4ffdabcd847d
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (pyweb)" project-jdk-type="Python SDK" />
   <component name="PyPackaging">
