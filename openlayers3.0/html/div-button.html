@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Div-Button</title>
+</head>
+<body>
+<div style="width: 100px;height: 100px">
+    <div id="div-change" style="width: 200px;width: 200px;overflow-y: scroll">
+        <button style="background:white;"onclick="changeText(this)">F1</button>
+        <button style="background:white;"onclick="changeText(this)">F2</button>
+        <button style="background:white;"onclick="changeText(this)">F3</button>
+        <button style="background:white;"onclick="changeText(this)">F4</button>
+        <button style="background:white;"onclick="changeText(this)">F5</button>
+        <button style="background:white;"onclick="changeText(this)">F6</button>
+        <button style="background:white;"onclick="changeText(this)">F7</button>
+        <button style="background:white;"onclick="changeText(this)">F8</button>
+        <button style="background:white;"onclick="changeText(this)">F9</button>
+        <button style="background:white;"onclick="changeText(this)">F10</button>
+        <button style="background:white;"onclick="changeText(this)">F11</button>
+        <button style="background:white;"onclick="changeText(this)">F12</button>
+        <button style="background:white;"onclick="changeText(this)">F13</button>
+        <button style="background:white;"onclick="changeText(this)">F14</button>
+        <button style="background:white;"onclick="changeText(this)">F15</button>
+        <button style="background:white;"onclick="changeText(this)">F16</button>
+        <button style="background:white;"onclick="changeText(this)">F17</button>
+        <button style="background:white;"onclick="changeText(this)">F18</button>
+        <button style="background:white;"onclick="changeText(this)">F19</button>
+        <button style="background:white;"onclick="changeText(this)">F20</button>
+        <button style="background:white;"onclick="changeText(this)">F21</button>
+        <button style="background:white;"onclick="changeText(this)">F22</button>
+        <button style="background:white;"onclick="changeText(this)">F23</button>
+        <button style="background:white;"onclick="changeText(this)">F24</button>
+        <button style="background:white;"onclick="changeText(this)">F25</button>
+        <button style="background:white;"onclick="changeText(this)">F26</button>
+        <button style="background:white;"onclick="changeText(this)">F27</button>
+        <button style="background:white;"onclick="changeText(this)">F28</button>
+        <button style="background:white;"onclick="changeText(this)">F29</button>
+        <button style="background:white;"onclick="changeText(this)">F30</button>
+    </div>
+</div>
+<script>
+    var childs = document.getElementById("div-change").childNodes;
+
+    function changeText(obj) {
+        for (var i =0 ;i < childs.length;i++){
+        childs[i].style="background:white"
+    }
+        obj.style="background:#555;color:blue";
+        obj.css="border:1px;";
+    }
+</script>
+</body>
+</html>

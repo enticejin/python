@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessible Map</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
+    <style>
+      a.skiplink {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+      a.skiplink:focus {
+        clip: auto;
+        height: auto;
+        width: auto;
+        background-color: #fff;
+        padding: 0.3em;
+      }
+      #map:focus {
+        outline: #4A74A8 solid 0.15em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map" class="map" tabindex="0"></div>
+    <script type="text/javascript">
+        var json = {};
+        function init() {
+            //判断当前浏览器是否支持WebSocket
+            if ('WebSocket' in window) {
+                var RTLEURL = "ws://195.198.5.106:1202/ws";
+                websocket = new WebSocket(RTLEURL);
+            } else {
+                layer.msg('<span class="msgbox_HS">浏览器不支持webSocket通讯请升级浏览器版本</span>', { shade: 0.1, time: 3000 });
+            }
+            //连接发生错误的回调方法
+            websocket.onerror = function () {
+                setMessageInnerHTML("error");
+            };
+
+            //连接成功建立的回调方法
+            websocket.onopen = function (event) {
+                setMessageInnerHTML("open");
+            }
+
+            //连接关闭的回调方法
+            websocket.onclose = function () {
+                setMessageInnerHTML("close");
+            }
+
+            //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+            window.onbeforeunload = function () {
+                websocket.close();
+            }
+        }
+        function WebSocketTest() {
+           init();
+            websocket.onmessage = function (event) {
+                 json = eval("(" + event.data + ")");
+
+                if (json.messageType == 'TagLocated') {
+                    return json;
+                }
+
+            }
+        }
+
+        /**
+         * 关闭 myWsocket
+         * @returns
+         */
+        function closeWebSocket() {
+            if (websocket != null) {
+                websocket.close();
+                websocket = null;
+            }
+        }
+        //将消息显示在网页上
+        function setMessageInnerHTML(innerHTML) {
+            console.log(innerHTML);
+        }
+
+     // 模拟后台数据
+var trackData = [
+    {
+        "lon":106.26 + json.x *0.01,
+        "lat":26.629 + json.y *0.01
+    }
+]
+// 遍历得到点的集合
+var features = []
+for(var i=0;i<trackData.length;i++){
+    // 将点转换成地图识别的格式
+    var coordinate = ol.proj.transform([trackData[i].lon,trackData[i].lat],'EPSG:4326','EPSG:3857')
+    features[i] = new ol.Feature({
+        geometry: new ol.geom.Point(coordinate)
+    })
+}
+var map = new ol.Map({
+    target: 'map',
+    view: new ol.View({
+        center: ol.proj.fromLonLat([106.26, 26.629]),
+        zoom: 6
+    }),
+    layers:[
+        // 底图
+        new ol.layer.Tile({
+            source: new ol.source.OSM()
+        }),
+        // 点图层
+        new ol.layer.Vector({
+            source: new ol.source.Vector({
+                features: features
+            }),
+            style: new ol.style.Style({
+                image: new ol.style.Circle({
+                    radius: 5,
+                    stroke: new ol.style.Stroke({
+                        color:'#fff'
+                    }),
+                    fill: new ol.style.Fill({
+                        color:'#f00'
+                    })
+                })
+            })
+        })
+    ]
+})
+
+
+    </script>
+  </body>
+</html>

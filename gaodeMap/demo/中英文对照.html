@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <title>英文、中英文地图</title>
+  <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+  <style>
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <div class="input-card" style="width:13rem">
+    <h4>底图语言切换</h4>
+    <div id="lang">
+      <div class="input-item"><input id="en" name="language" type="radio" checked="checked"><span class="input-text">英文底图</span></div>
+      <div class="input-item"><input id="zh_en" name="language" type="radio"><span class="input-text">中英文对照</span></div>
+      <div class="input-item"><input id="zh_cn" name="language" type="radio"><span class="input-text">中文底图</span></div>
+    </div>
+  </div>
+  <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=dc3380f99a9db0511bdcfdf52b6efda3"></script>
+  <script>
+    //初始化地图
+    var map = new AMap.Map('container', {
+      resizeEnable: true,
+      center: [106.709177, 26.629907],
+      lang: "zh_cn" //可选值：en，zh_en, zh_cn
+    });
+
+    //绑定radio点击事件
+    var radios = document.querySelectorAll("#lang input");
+    radios.forEach(function(ratio) {
+      ratio.onclick = setLang;
+    });
+
+    function setLang() {
+      map.setLang(this.id);
+    }
+  </script>
+</body>
+
+</html>

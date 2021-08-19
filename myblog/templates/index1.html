@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyBlog</title>
+</head>
+<body>
+    <h3>网站名：{{ siteName }}</h3>
+    <h3>域名： {{ url }}</h3>
+    {# 下面是新代码 #}
+    <div>
+        <ul>
+            <h4>Blog教程目录</h4>
+            {% for list in list %}
+                <li>{{ list }}</li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    {# 新加字典代码 #}
+    <div>
+        <ul>
+            <h4>Blog信息</h4>
+                {% for key, value in mydict.items %}
+                    <li>{{ key }}:{{ value }}</li>
+                {% endfor %}
+
+        </ul>
+    </div>
+    {# 新传入对象 #}
+    <div>
+        <ul>
+            <h4>所有文章：</h4>
+                {% for article in allArticles %}
+                    <li>{{ article.title }}</li>
+                {% endfor %}
+        </ul>
+
+    </div>
+</body>
+</html>

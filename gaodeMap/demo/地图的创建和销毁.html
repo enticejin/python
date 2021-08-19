@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+  <style>
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <title>地图创建与销毁</title>
+</head>
+
+<body>
+  <div id="container"></div>
+  <div class="input-card" style="width:16rem">
+    <h4>创建、销毁地图</h4>
+    <div id="btns">
+      <div class="input-item">
+        <button id="create-btn" class="btn" style="margin-right:1rem;">创建地图</button>
+        <button id="destroy-btn" class="btn">销毁地图</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=dc3380f99a9db0511bdcfdf52b6efda3"></script>
+  <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+  <script>
+    var map = null;
+
+    function createMap() {
+      map = new AMap.Map('container', {
+        resizeEnable: true
+      });
+      log.success("创建地图成功");
+    }
+
+    function destroyMap() {
+      map && map.destroy();
+      log.info("地图已销毁");
+    }
+
+    //初始化地图
+    createMap();
+
+    //绑定创建、销毁事件
+    document.querySelector("#create-btn").onclick = createMap;
+    document.querySelector("#destroy-btn").onclick = destroyMap;
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+  <style>
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+
+    #map-zoom, #map-center {
+      color: #0288d1;
+    }
+  </style>
+  <title>地图级别与中心点</title>
+</head>
+
+<body>
+  <div id="container"></div>
+  <div class="info">
+    <h4>获取地图级别与中心点坐标</h4>
+    <p>当前级别：<span id="map-zoom">11</span></p>
+    <p>当前中心点：<span id="map-center">106.709177, 26.629907</span></p>
+  </div>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=dc3380f99a9db0511bdcfdf52b6efda3"></script>
+  <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+  <script>
+    //初始化地图
+    var map = new AMap.Map('container', {
+      resizeEnable: true, //是否监控地图容器尺寸变化
+      zoom: 11, //初始地图级别
+      center: [106.709177, 26.629907], //初始地图中心点
+    });
+
+    //显示地图层级与中心点信息
+    function logMapinfo(){
+      var zoom = map.getZoom(); //获取当前地图级别
+      var center = map.getCenter(); //获取当前地图中心位置
+
+      document.querySelector("#map-zoom").innerText = zoom;
+      document.querySelector("#map-center").innerText = center.toString();
+    };
+
+    //绑定地图移动与缩放事件
+    map.on('moveend', logMapinfo);
+    map.on('zoomend', logMapinfo);
+  </script>
+</body>
+
+</html>
