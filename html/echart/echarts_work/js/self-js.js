@@ -184,7 +184,7 @@ option_analyse_line = {
             name: '湿度',
             type: 'line',
             stack: '总量',
-            data: [30, 30, 25, 24, 26, 22, 23, 23, 25, 23, 24, 25,]
+            data: [52 ,42 ,32 ,52 ,32 ,32 ,22 ,62 ,42 ,52 ,42 ,32,]
         }
     ]
 };
@@ -196,12 +196,12 @@ humidity && myChart_humidity.setOption(humidity);
 
 //vue组件
 
-    var app = new Vue({
+     var app = new Vue({
         el: '#app',
         data: {
             isCascaderShow: 0,
-            state1: '',
             dataJson: {},
+            state1: '',
             //级联选择器
             vals: [],
             val: [],
@@ -238,12 +238,12 @@ humidity && myChart_humidity.setOption(humidity);
                 label: '七楼',
                 children: [
                     {
-                        value: 'F6-002',
-                        label: 'F6-002',
-                    },
-                    {
                         value: 'F7-001',
                         label: 'F7-001',
+                    },
+                    {
+                        value: 'F6-002',
+                        label: 'F6-002',
                     },
                     {
                         value: 'F7-002',
@@ -313,6 +313,10 @@ humidity && myChart_humidity.setOption(humidity);
                         label: 'F7-001',
                     },
                     {
+                        value: 'F6-002',
+                        label: 'F6-002',
+                    },
+                    {
                         value: 'F7-002',
                         label: 'F7-002',
                     },
@@ -345,6 +349,7 @@ humidity && myChart_humidity.setOption(humidity);
                         label: 'F7-009',
                     }
                 ]
+
             },],
         },
         //把方法赋值给window
@@ -365,19 +370,18 @@ humidity && myChart_humidity.setOption(humidity);
             },
             //根据楼层房间号加载温湿度
             handleChange() {
-                let floor_arr = this.$refs["cascader-panel"].getCheckedNodes()[0].pathLabels;
-                let floor_name = floor_arr[0];
-                let room_name = floor_arr[1];
-                let temp = this.getTemperature(floor_name, room_name);
-                let humidity = this.getHumidity(floor_name, room_name);
-                let dataJson = {};
-                dataJson.floor_name = floor_name;
-                dataJson.room_name = room_name;
-                dataJson.temp = temp;
-                dataJson.humidity = humidity;
-                this.dataJson = JSON.stringify(dataJson);
-                this.getDataJSon()
-                ++this.iscascaderShow;
+                    let floor_arr = this.$refs["cascader-panel"].getCheckedNodes()[0].pathLabels;
+                    let floor_name = floor_arr[0];
+                    let room_name = floor_arr[1];
+                    let temp = this.getTemperature(floor_name, room_name);
+                    let humidity = this.getHumidity(floor_name, room_name);
+                    let dataJson = {};
+                    dataJson.floor_name = floor_name;
+                    dataJson.room_name = room_name;
+                    dataJson.temp = temp;
+                    dataJson.humidity = humidity;
+                    this.dataJson = JSON.stringify(dataJson);
+                    this.getDataJSon()
             },
             //点击设置温湿度的值
             getDataJSon() {
@@ -395,7 +399,6 @@ humidity && myChart_humidity.setOption(humidity);
                         data: [{value: random1}]
                     }]
                 });
-                ++this.iscascaderShow;
                 return this.dataJson;
             },
 
@@ -416,27 +419,25 @@ humidity && myChart_humidity.setOption(humidity);
                 array_floor_rooms = Object.values(this.options[0].children.concat(this.options[1].children));
                 return array_floor_rooms;
             },
-            //获取选择到的数据
             handleSelect(item) {
-                //console.log(item)
+                //console.log(item);
             },
 
             //获取楼层房间值
             getFloorRoom(item) {
                 let result = '';
-                if (typeof (this.$refs["el-cascader-search"].getCheckedNodes()[0]) === "undefined") {
-                    result = this.options_search[0].value + "&" + this.options_search[0].children[0].value;
-                } else {
+                if(typeof(this.$refs["el-cascader-search"].getCheckedNodes()[0]) === "undefined"){
+                    result  = this.options_search[0].value + "&" +this.options_search[0].children[0].value;
+                }else{
                     let floor_arr = this.$refs["el-cascader-search"].getCheckedNodes()[0].pathLabels;
                     let floor_name = floor_arr[0];
                     let room_name = floor_arr[1];
                     ++this.isCascaderShow;
-                    result = floor_name + "&" + room_name;
+                    result= floor_name + "&" + room_name;
                 }
                 return result;
             },
-            /*
-            //查找
+            //级联选择器选择查找
             searchValue(item) {
                 let floorRoom = this.getFloorRoom();
                 let name_arr = floorRoom.split("&");
@@ -448,7 +449,6 @@ humidity && myChart_humidity.setOption(humidity);
                 for (let i = 0; i < this.options.length; i++) {
                     //console.log("this.options[i].children="+JSON.stringify(this.options[i].children));
                     if (this.options[i].label === floor_name) {
-                        //console.log(typeof (this.options[i]));
                         for (let j = 0; j < this.options[i].children.length; j++) {
                             if (this.options[i].children[j].label === room_name) {
                                 this.options = [],
@@ -466,8 +466,8 @@ humidity && myChart_humidity.setOption(humidity);
                     }
                 }
             },
-            */
-            //查找
+
+            //文本框输入查找
             searchRoom() {
                 let searchText = document.getElementById('searchText').value;
                 let room_name = searchText;
@@ -503,7 +503,8 @@ humidity && myChart_humidity.setOption(humidity);
                 }
                 this.options = arr_options;
                 if (room_name === null || room_name.length === 0) {
-                    this.$alert('输入内容为空', '警告', {});
+                    this.$alert('输入内容为空,加载所有数据以供选择', '警告', {});
+                    this.options = this.options_search;
                 } else if (this.options.length ===0 ) {
                     this.$alert('输入内容不存在', '错误', {});
                     this.options = null;
@@ -511,4 +512,3 @@ humidity && myChart_humidity.setOption(humidity);
             },
         }
     })
-
