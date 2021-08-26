@@ -1,0 +1,40 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=geo-svg-lines
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container_basicArea" style="width:300px; height: 200px;"></div>
+        <div id="container_smooth" style="float:left;top:0px; width:300px; height: 200px"></div>
+
+        <script type="text/javascript" src="../../echarts_work/js/echarts.min.js"></script>
+        <script type="text/javascript">
+//获取div容器
+var chartDom = document.getElementById('container_basicArea');
+//用echarts初始化容器
+var myChart = echarts.init(chartDom);
+//定义一个option变量
+var option_basic;
+//给第一个option赋值
+ option_basic ={
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+        areaStyle: {}
+    }]
+};
+ option_basic && myChart.setOption(option_basic);
+        </script>
+    </body>
+</html>
