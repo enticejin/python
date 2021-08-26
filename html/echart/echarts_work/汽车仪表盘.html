@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="css/theme_chalk.css">
+<link rel="stylesheet" href="css/fonts/element-icons.ttf">
+<link rel="stylesheet" href="css/fonts/element-icons.woff">
+<body style="height: 100%; margin: 0">
+<div style="height: 30%; margin: 0;">
+
+    <div id="humidity" style=" width: 15%; height: 80%; float: left"></div>
+</div>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script>
+var chartDom_humidity = document.getElementById('humidity');
+var myChart_humidity = echarts.init(chartDom_humidity);
+var humidity;
+
+humidity = {
+    series: [{
+        type: 'gauge',
+        startAngle: 200,
+        endAngle: -20,
+        min: 0,
+        max: 100,
+        splitNumber: 10,
+        axisLine: {
+            lineStyle: {
+                width: 15,
+                color: [
+                    [0.3, '#67e0e3'],
+                    [0.7, '#37a2da'],
+                    [1, '#fd666d']
+                ]
+            }
+        },
+        pointer: {
+            itemStyle: {
+                color: 'auto',
+            }
+        },
+        axisTick: {
+            distance: -30,
+            length: 8,
+            lineStyle: {
+                color: '#fff',
+                width: 2
+            }
+        },
+        splitLine: {
+            distance: -30,
+            length: 30,
+            lineStyle: {
+                color: '#fff',
+                width: 4
+            }
+        },
+        axisLabel: {
+            color: 'auto',
+            distance: 16,
+            fontSize: 10
+        },
+        detail: {
+            valueAnimation: true,
+            fontSize: 10,
+            formatter: '湿度：'+'{value} %',
+            color: 'auto'
+        },
+        data: [{
+            value: 50
+        }]
+    }
+    ]
+};
+
+setInterval(function () {
+     //湿度
+    let random = (Math.random() * 100).toFixed(2) - 0;
+    humidity.series[0].data[0].value = random;
+    myChart_humidity.setOption(humidity, true);
+}, 2000);
+
+humidity && myChart_humidity.setOption(humidity);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>草稿</title>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="css/theme_chalk.css">
+<link rel="stylesheet" href="css/fonts/element-icons.ttf">
+<link rel="stylesheet" href="css/fonts/element-icons.woff">
+<body style="height: 100%; margin: 0">
+<div style="height: 30%; margin: 0;">
+    <div id="app">
+        <!--<div id="el-cascader-search">
+            <el-cascader
+                    key="isCascaderShow"
+                    ref="el-cascader-search"
+                    placeholder="试试搜索：F6-001"
+                    :options="options_search"
+                    @change="getFloorRoom"
+                    filterable
+            ></el-cascader>
+            <el-button icon="el-icon-search" @click="searchValue" circle></el-button>
+        </div>-->
+        <el-row class="demo-autocomplete">
+            <el-col :span="12">
+                <el-autocomplete id="searchText" class="inline-input" v-model="state1"
+                                 :fetch-suggestions="querySearch" placeholder="请输入内容,例如F6-001"
+                                 @select="handleSelect"></el-autocomplete>
+                <el-button icon="el-icon-search" @click="searchRoom" circle></el-button>
+            </el-col>
+        </el-row>
+        <div id="el-cascader-panel-main">
+            <el-cascader-panel key="iscascaderShow" ref="cascader-panel" :options="options"
+                               @change="handleChange" @click="getDataJSon"></el-cascader-panel>
+        </div>
+
+
+    </div>
+
+    <div id="temperature" style=" width: 30%; height: 80%; float: left">
+    </div>
+    <div id="humidity" style="width: 30%;height: 80%; float: left"></div>
+    <div id="analyse_line" style="width: 30%;height: 80%; float: left"></div>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/element_ui.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script src="js/self-js.js"></script>
+
+</body>
+</html>
