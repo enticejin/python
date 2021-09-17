@@ -31,6 +31,11 @@
   <body>
     <div id="map" class="map" tabindex="0"></div>
     <script type="text/javascript">
+      var AMapLayer = new ol.layer.Tile({
+        source: new ol.source.XYZ({
+            url: "http://wprd0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}"
+        })
+    });
         var json = {};
         function init() {
             //判断当前浏览器是否支持WebSocket
@@ -90,8 +95,15 @@
      // 模拟后台数据
 var trackData = [
     {
-        "lon":106.26 + json.x *0.01,
-        "lat":26.629 + json.y *0.01
+        "lon":106.26,
+        "lat":26.629
+    },
+        {
+        "lon":108.26,
+        "lat":27.629
+    },{
+        "lon":109.26,
+        "lat":27.629
     }
 ]
 // 遍历得到点的集合
@@ -111,9 +123,7 @@ var map = new ol.Map({
     }),
     layers:[
         // 底图
-        new ol.layer.Tile({
-            source: new ol.source.OSM()
-        }),
+        AMapLayer,
         // 点图层
         new ol.layer.Vector({
             source: new ol.source.Vector({
@@ -121,7 +131,7 @@ var map = new ol.Map({
             }),
             style: new ol.style.Style({
                 image: new ol.style.Circle({
-                    radius: 5,
+                    radius: 20,
                     stroke: new ol.style.Stroke({
                         color:'#fff'
                     }),

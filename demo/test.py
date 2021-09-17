@@ -19,4 +19,3 @@ print(string)
 string2="c:\pograme files\data"
 print(r"c:\pograme files\data")
 '''
-
