@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.8.1/css/ol.css"
+          type="text/css">
+    <style>
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+
+        body, html, #map {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.8.1/build/ol.js"></script>
+
+    <script src="//mapopen.bj.bcebos.com/github/BMapGLLib/TrackAnimation/src/TrackAnimation.min.js"></script>
+    <script type="text/javascript"
+            src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=859d16285fd000feec89e9032513f8bb"></script>
+    <title>OpenLayers_bmap_example</title>
+</head>
+<body>
+<h2>My OpenLayers_bmap</h2>
+<div id="map" class="map"></div>
+<script type="text/javascript">
+
+    var projection = ol.proj.get("EPSG:3857");
+    var resolutions = [];
+    for (var i = 0; i < 19; i++) {
+        resolutions[i] = Math.pow(2, 18 - i);
+    }
+    var tilegrid = new ol.tilegrid.TileGrid({
+        origin: [0, 0],
+        resolutions: resolutions
+    });
+    var baidu_source = new ol.source.TileImage({
+        projection: projection,
+        tileGrid: tilegrid,
+        tileUrlFunction: function (tileCoord, pixelRatio, proj) {
+            if (!tileCoord) {
+                return "";
+            }
+            var z = tileCoord[0];
+            var x = tileCoord[1];
+            var y = -tileCoord[2] - 1;
+            if (x < 0) {
+                x = "M" + (-x);
+            }
+            if (y < 0) {
+                y = "M" + (-y);
+            }
+            return "http://online3.map.bdimg.com/onlinelabel/?qt=tile&x=" + x + "&y=" + y + "&z=" + z + "&styles=pl&udt=20151021&scaler=1&p=1";
+        }
+    });
+    //百度地图
+    var baidu_layer = new ol.layer.Tile({
+        source: baidu_source
+    });
+
+    // GL版命名空间为BMapGL
+    // 按住鼠标右键，修改倾斜角和角度
+    var bmap = new BMapGL.Map("map");    // 创建Map实例
+    bmap.centerAndZoom(new BMapGL.Point(116.297611, 40.047363), 17);  // 初始化地图,设置中心点坐标和地图级别
+    bmap.enableScrollWheelZoom(true);     // 开启鼠标滚轮缩放
+    var path = [{
+        'lng': 116.297611,
+        'lat': 40.047363
+    }, {
+        'lng': 116.302839,
+        'lat': 40.048219
+    }, {
+        'lng': 116.308301,
+        'lat': 40.050566
+    }, {
+        'lng': 116.305732,
+        'lat': 40.054957
+    }, {
+        'lng': 116.304754,
+        'lat': 40.057953
+    }, {
+        'lng': 116.306487,
+        'lat': 40.058312
+    }, {
+        'lng': 116.307223,
+        'lat': 40.056379
+    }];
+    var point = [];
+    for (var i = 0; i < path.length; i++) {
+        point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+    }
+    var pl = new BMapGL.Polyline(point);
+    setTimeout('start()', 1000);
+
+    function start() {
+        trackAni = new BMapGLLib.TrackAnimation(bmap, pl, {
+            overallView: true,
+            tilt: 30,
+            duration: 20000,
+            delay: 300
+        });
+        trackAni.start();
+    }
+
+    var tile_example = new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+    //加载静态图片
+    var extent = [0,0,418,600];
+    var projection = new ol.proj.Projection({
+        code: 'xkcd-image',
+        units: 'pixels',
+        extent: extent
+    });
+    var image_layer = new ol.layer.Image({
+                source: new ol.source.ImageStatic({
+                    url: 'test.png',
+                    projection: projection,
+                    imageExtent: extent
+                })
+            })
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            //baidu_layer,
+            tile_example,
+            image_layer
+        ],
+        view: new ol.View({
+            //center: ol.proj.fromLonLat([106.6280289, 26.6220112]),
+            //projection: projection,
+            center: ol.extent.getCenter(extent),
+            zoom: 20
+        })
+    });
+</script>
+</body>
+</html>
