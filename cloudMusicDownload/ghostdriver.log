@@ -1,0 +1,37 @@
+PhantomJS is launching GhostDriver...
+[INFO  - 2021-09-24T10:03:54.293Z] GhostDriver - Main - running on port 13433
+[INFO  - 2021-09-24T10:03:56.787Z] Session [bb2807f0-1d1e-11ec-af12-49fe99c16860] - _decorateNewWindow - page.settings: {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":false,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.2 Safari/534.34","webSecurityEnabled":true}
+[INFO  - 2021-09-24T10:03:56.787Z] Session [bb2807f0-1d1e-11ec-af12-49fe99c16860] - page.customHeaders:  - {}
+[INFO  - 2021-09-24T10:03:56.787Z] Session [bb2807f0-1d1e-11ec-af12-49fe99c16860] - CONSTRUCTOR - Desired Capabilities: {"browserName":"phantomjs","version":"","platform":"ANY","javascriptEnabled":true}
+[INFO  - 2021-09-24T10:03:56.790Z] Session [bb2807f0-1d1e-11ec-af12-49fe99c16860] - CONSTRUCTOR - Negotiated Capabilities: {"browserName":"phantomjs","version":"1.9.2","driverName":"ghostdriver","driverVersion":"1.0.4","platform":"windows-8-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2021-09-24T10:03:56.790Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: bb2807f0-1d1e-11ec-af12-49fe99c16860
+[ERROR - 2021-09-24T10:03:57.058Z] RouterReqHand - _handle - Thrown => {
+  "message": "Error Message => 'Unable to switch to frame'\n caused by Request => {\"headers\":{\"Accept\":\"application/json\",\"Accept-Encoding\":\"identity\",\"Content-Length\":\"75\",\"Content-Type\":\"application/json;charset=UTF-8\",\"Host\":\"127.0.0.1:13433\",\"User-Agent\":\"selenium/3.141.0 (python windows)\"},\"httpVersion\":\"1.1\",\"method\":\"POST\",\"post\":\"{\\\"id\\\": \\\"contentFrame\\\", \\\"sessionId\\\": \\\"bb2807f0-1d1e-11ec-af12-49fe99c16860\\\"}\",\"url\":\"/frame\",\"urlParsed\":{\"anchor\":\"\",\"query\":\"\",\"file\":\"frame\",\"directory\":\"/\",\"path\":\"/frame\",\"relative\":\"/frame\",\"port\":\"\",\"host\":\"\",\"password\":\"\",\"user\":\"\",\"userInfo\":\"\",\"authority\":\"\",\"protocol\":\"\",\"source\":\"/frame\",\"queryKey\":{},\"chunks\":[\"frame\"]},\"urlOriginal\":\"/session/bb2807f0-1d1e-11ec-af12-49fe99c16860/frame\"}",
+  "name": "NoSuchFrame",
+  "errorStatusCode": 8,
+  "errorSessionId": "bb2807f0-1d1e-11ec-af12-49fe99c16860",
+  "errorClassName": "SessionReqHand",
+  "errorScreenshot": "iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAYAAADtt+XCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAehJREFUeJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4N1SVAAH5HdPnAAAAAElFTkSuQmCC",
+  "line": 625,
+  "sourceId": 77139624,
+  "sourceURL": ":/ghostdriver/request_handlers/session_request_handler.js",
+  "stack": "NoSuchFrame: Error Message => 'Unable to switch to frame'\n caused by Request => {\"headers\":{\"Accept\":\"application/json\",\"Accept-Encoding\":\"identity\",\"Content-Length\":\"75\",\"Content-Type\":\"application/json;charset=UTF-8\",\"Host\":\"127.0.0.1:13433\",\"User-Agent\":\"selenium/3.141.0 (python windows)\"},\"httpVersion\":\"1.1\",\"method\":\"POST\",\"post\":\"{\\\"id\\\": \\\"contentFrame\\\", \\\"sessionId\\\": \\\"bb2807f0-1d1e-11ec-af12-49fe99c16860\\\"}\",\"url\":\"/frame\",\"urlParsed\":{\"anchor\":\"\",\"query\":\"\",\"file\":\"frame\",\"directory\":\"/\",\"path\":\"/frame\",\"relative\":\"/frame\",\"port\":\"\",\"host\":\"\",\"password\":\"\",\"user\":\"\",\"userInfo\":\"\",\"authority\":\"\",\"protocol\":\"\",\"source\":\"/frame\",\"queryKey\":{},\"chunks\":[\"frame\"]},\"urlOriginal\":\"/session/bb2807f0-1d1e-11ec-af12-49fe99c16860/frame\"}\n    at :/ghostdriver/request_handlers/session_request_handler.js:625\n    at :/ghostdriver/request_handlers/session_request_handler.js:152\n    at :/ghostdriver/request_handlers/request_handler.js:61\n    at :/ghostdriver/request_handlers/router_request_handler.js:78",
+  "stackArray": [
+    {
+      "sourceURL": ":/ghostdriver/request_handlers/session_request_handler.js",
+      "line": 625
+    },
+    {
+      "sourceURL": ":/ghostdriver/request_handlers/session_request_handler.js",
+      "line": 152
+    },
+    {
+      "sourceURL": ":/ghostdriver/request_handlers/request_handler.js",
+      "line": 61
+    },
+    {
+      "sourceURL": ":/ghostdriver/request_handlers/router_request_handler.js",
+      "line": 78
+    }
+  ]
+}

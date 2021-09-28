@@ -1,0 +1,335 @@
+1630995955687	geckodriver	INFO	Listening on 127.0.0.1:5638
+1630995958706	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileCcdFr2"
+1630995959705	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileCcdFr2\\search.json.mozlz4", (void 0)))
+1630995963640	Marionette	INFO	Listening on port 4486
+1630995963974	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource:///actors/FormValidationChild.jsm, line 177: TypeError: can't access property "ownerGlobal", this._element is null
+1630996197453	Marionette	INFO	Stopped listening on port 4486
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1630996320229	geckodriver	INFO	Listening on 127.0.0.1:10091
+1630996323265	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofilexB2Z8H"
+1630996323786	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofilexB2Z8H\\search.json.mozlz4", (void 0)))
+1630996325947	Marionette	INFO	Listening on port 7241
+1630996326389	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource:///actors/FormValidationChild.jsm, line 177: TypeError: can't access property "ownerGlobal", this._element is null
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
+console.error: (new TypeError("can't access property \"isSlotted\", container is undefined", "resource://devtools/client/inspector/markup/markup.js", 2139))
+1630996521112	Marionette	INFO	Stopped listening on port 7241
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1630996935220	geckodriver	INFO	Listening on 127.0.0.1:4870
+1630996938228	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileg74haK"
+1630996938728	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileg74haK\\search.json.mozlz4", (void 0)))
+1630996940880	Marionette	INFO	Listening on port 5311
+1630996941357	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630996946477	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://www.apple.com.cn/metrics/ac-target/latest/ac-target.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1630997086560	Marionette	INFO	Stopped listening on port 5311
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+[Parent 8692, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:544
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1630997710427	geckodriver	INFO	Listening on 127.0.0.1:4809
+1630997713449	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofile1p3Ick"
+1630997713911	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofile1p3Ick\\search.json.mozlz4", (void 0)))
+1630997716082	Marionette	INFO	Listening on port 4820
+1630997716575	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: (new TypeError("can't access property \"getFront\", container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2309))
+console.error: (new TypeError("can't access property \"getFront\", container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2309))
+console.error: (new TypeError("can't access property \"treeChildren\", parent is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 67))
+TypeError: can't access property "treeChildren", parent is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:67:24
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+console.error: (new TypeError("can't access property \"on\", nodeFront.walkerFront is null", "resource://devtools/client/inspector/markup/markup.js", 951))
+TypeError: can't access property "on", nodeFront.walkerFront is null: _onNewSelection@resource://devtools/client/inspector/markup/markup.js:951:7
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+setNodeFront@resource://devtools/client/framework/selection.js:161:10
+onDetached@resource://devtools/client/inspector/inspector.js:1646:20
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+_onMutations@resource://devtools/client/framework/selection.js:104:12
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+console.error: (new Error("Can not send request 'getAllSelectors' because front 'domnode' is already destroyed.", "resource://devtools/shared/protocol/Front/FrontClassWithSpec.js", 28))
+Error: Can not send request 'getAllSelectors' because front 'domnode' is already destroyed.: generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:28:15
+updateSelectionCssSelectors@resource://devtools/client/inspector/inspector.js:1447:32
+onNewSelection@resource://devtools/client/inspector/inspector.js:1518:10
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+setNodeFront@resource://devtools/client/framework/selection.js:161:10
+onDetached@resource://devtools/client/inspector/inspector.js:1646:20
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+_onMutations@resource://devtools/client/framework/selection.js:104:12
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+console.error: (new TypeError("can't access property \"getFront\", container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2309))
+console.error: (new TypeError("can't access property \"getFront\", container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2309))
+console.error: (new TypeError("can't access property \"getFront\", container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2309))
+console.error: (new TypeError("can't access property \"getFront\", container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2309))
+console.error: "Error while calling actor 'pagestyle's method 'getLayout'" "can't access property \"rawNode\", node is null"
+console.error: (new TypeError("can't access property \"rawNode\", node is null", "resource://devtools/server/actors/page-style.js", 1001))
+console.error: (new Error("Protocol error (TypeError): can't access property \"rawNode\", node is null from: server0.conn0.child4/pagestyle25 (resource://devtools/server/actors/page-style.js:1001:5)", "resource://devtools/shared/protocol/Front.js", 362))
+console.error: (new TypeError("can't access property \"treeChildren\", parent is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 67))
+TypeError: can't access property "treeChildren", parent is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:67:24
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:244:34
+emit@resource://devtools/shared/event-emitter.js:190:18
+emit@resource://devtools/shared/event-emitter.js:342:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+1630998122309	Marionette	INFO	Stopped listening on port 4820
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+Listening on port 12232
+1630998110398	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
+SourceActor threw an exception: Error: Failed to fetch https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=Apple&fenlei=256&rsv_pq=8ade36c80001c6d5&rsv_t=cff3k9IamBedjkG%2Bfgor8Vukm5zyD94AloxbWMSil8lKSmJhw4aj2ZZKjZQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_sug3=5&rsv_btype=i&inputT=120&rsv_sug4=120&rsv_jmp=fail. Code 2152398868.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:556:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 556, column: 16
+console.error: (new Error("Failed to fetch https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=Apple&fenlei=256&rsv_pq=8ade36c80001c6d5&rsv_t=cff3k9IamBedjkG%2Bfgor8Vukm5zyD94AloxbWMSil8lKSmJhw4aj2ZZKjZQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_sug3=5&rsv_btype=i&inputT=120&rsv_sug4=120&rsv_jmp=fail. Code 2152398868.", "resource://devtools/shared/DevToolsUtils.js", 556))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 556: Error: Failed to fetch https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=Apple&fenlei=256&rsv_pq=8ade36c80001c6d5&rsv_t=cff3k9IamBedjkG%2Bfgor8Vukm5zyD94AloxbWMSil8lKSmJhw4aj2ZZKjZQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_sug3=5&rsv_btype=i&inputT=120&rsv_sug4=120&rsv_jmp=fail. Code 2152398868.
+JavaScript error: resource://devtools/client/shared/widgets/tooltip/HTMLTooltip.js, line 990: TypeError: can't access property "nodePrincipal", this.doc is null
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn1.child4/domwalker24, type cancelPick failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:289:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ncancelPick@resource://devtools/client/fronts/walker.js:506:18\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:55:25\n_onInspectorFrontDestroyed@resource://devtools/client/inspector/node-picker.js:113:18\nstop@resource://devtools/client/inspector/node-picker.js:176:18\n_destroyToolbox@resource://devtools/client/framework/toolbox.js:371630998511671	Marionette	INFO	Stopped listening on port 3508
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+t.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1630998503830	geckodriver	INFO	Listening on 127.0.0.1:2613
+1630998506851	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofilekahokv"
+1630998507215	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofilekahokv\\search.json.mozlz4", (void 0)))
+1630998509440	Marionette	INFO	Listening on port 1748
+1630998509602	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630998631924	Marionette	INFO	Stopped listening on port 1748
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+\\Local\\Temp\\rust_mozprofile6q1PX0\\search.json.mozlz4", (void 0)))
+1630998632283	Marionette	INFO	Listening on port 5915
+1630998632706	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.child4/domwalker23, type cancelPick failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:289:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ncancelPick@resource://devtools/client/fronts/walker.js:506:18\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:55:25\n_onInspectorFrontDestroyed@resource://devtools/client/inspector/node-picker.js:113:18\nstop@resource://devtools/client/inspector/node-picker.js:176:18\n_destroyToolbox@resource://devtools/client/framework/toolbox.js:3761:24\ndestroy@resource://devtools/client/framework/toolbox.js:3699:10\n_forgetBrowserWindow@resource://devtools/client/framework/devtools-browser.js:702:17\nhandleEvent@resource://devtools/client/framework/devtools-browser.js:723:26\n", "resource://devtools/shared/protocol/Front.js", 103))
+1630998753719	Marionette	INFO	Stopped listening on port 5915
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1630998846935	geckodriver	INFO	Listening on 127.0.0.1:9973
+1630998849952	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileaNlq44"
+1630998850440	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileaNlq44\\search.json.mozlz4", (void 0)))
+1630998852923	Marionette	INFO	Listening on port 9984
+1630998853082	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630998977907	Marionette	INFO	Stopped listening on port 9984
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1630999055377	geckodriver	INFO	Listening on 127.0.0.1:8299
+1630999058397	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofilerpBXdp"
+1630999059099	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofilerpBXdp\\search.json.mozlz4", (void 0)))
+1630999061274	Marionette	INFO	Listening on port 8307
+1630999061524	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630999108509	geckodriver	INFO	Listening on 127.0.0.1:6705
+1630999111540	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileP1dyVD"
+1630999112007	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileP1dyVD\\search.json.mozlz4", (void 0)))
+1630999114177	Marionette	INFO	Listening on port 6713
+1630999114679	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630999216062	geckodriver	INFO	Listening on 127.0.0.1:7247
+1630999219094	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofile3412a4"
+1630999219578	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofile3412a4\\search.json.mozlz4", (void 0)))
+1630999221894	Marionette	INFO	Listening on port 7255
+1630999222218	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630999301384	geckodriver	INFO	Listening on 127.0.0.1:3223
+1630999304418	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileWQUkfB"
+1630999304884	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileWQUkfB\\search.json.mozlz4", (void 0)))
+1630999306991	Marionette	INFO	Listening on port 2427
+1630999307061	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630999335176	geckodriver	INFO	Listening on 127.0.0.1:7990
+1630999338209	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofilexJvY2u"
+1630999338692	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofilexJvY2u\\search.json.mozlz4", (void 0)))
+1630999340732	Marionette	INFO	Listening on port 7998
+1630999340853	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Failed to open input source 'javascript:void(0);'"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: mainThreadFetch/< :: line 670"  data: yes]
+Stack: mainThreadFetch/<@resource://devtools/shared/DevToolsUtils.js:670:15
+mainThreadFetch@resource://devtools/shared/DevToolsUtils.js:516:10
+_fetchURLContents@resource://devtools/server/actors/utils/sources-manager.js:442:22
+urlContents@resource://devtools/server/actors/utils/sources-manager.js:406:17
+_resurrectSource@resource://devtools/server/actors/thread.js:2091:35
+addAllSources@resource://devtools/server/actors/thread.js:1446:14
+watch@resource://devtools/server/actors/resources/sources.js:52:17
+watchResources@resource://devtools/server/actors/resources/index.js:242:19
+_watchTargetResources@resource://devtools/server/actors/targets/target-actor-mixin.js:159:24
+addWatcherDataEntry@resource://devtools/server/actors/targets/target-actor-mixin.js:50:20
+_addWatcherDataEntry@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:521:24
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:463:21
+Line: 670, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 670: NS_ERROR_NOT_AVAILABLE: Failed to open input source 'javascript:void(0);'
+1630999429137	geckodriver	INFO	Listening on 127.0.0.1:3322
+1630999432147	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileqCBHuu"
+1630999432605	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileqCBHuu\\search.json.mozlz4", (void 0)))
+1630999434768	Marionette	INFO	Listening on port 12732
+1630999435272	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+SourceActor threw an exception: [Exception... "Failed to open input source 'javascript:void(0);'"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: mainThreadFetch/< :: line 670"  data: yes]
+Stack: mainThreadFetch/<@resource://devtools/shared/DevToolsUtils.js:670:15
+mainThreadFetch@resource://devtools/shared/DevToolsUtils.js:516:10
+_fetchURLContents@resource://devtools/server/actors/utils/sources-manager.js:442:22
+urlContents@resource://devtools/server/actors/utils/sources-manager.js:406:17
+_resurrectSource@resource://devtools/server/actors/thread.js:2091:35
+addAllSources@resource://devtools/server/actors/thread.js:1446:14
+watch@resource://devtools/server/actors/resources/sources.js:52:17
+watchResources@resource://devtools/server/actors/resources/index.js:242:19
+_watchTargetResources@resource://devtools/server/actors/targets/target-actor-mixin.js:159:24
+addWatcherDataEntry@resource://devtools/server/actors/targets/target-actor-mixin.js:50:20
+_addWatcherDataEntry@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:521:24
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:463:21
+Line: 670, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 670: NS_ERROR_NOT_AVAILABLE: Failed to open input source 'javascript:void(0);'
+1630999476489	Marionette	INFO	Stopped listening on port 12732
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+\Local\\Temp\\rust_mozprofile4pPdYy\\search.json.mozlz4", (void 0)))
+1630999463876	Marionette	INFO	Listening on port 7434
+1630999463961	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630999480509	Marionette	INFO	Stopped listening on port 7434
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1630999657646	geckodriver	INFO	Listening on 127.0.0.1:1578
+1630999660666	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofilevL7kxz"
+1630999661121	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofilevL7kxz\\search.json.mozlz4", (void 0)))
+1630999667070	Marionette	INFO	Listening on port 1586
+1630999668194	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1630999712266	geckodriver	INFO	Listening on 127.0.0.1:12876
+1630999715296	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofilewt4eb2"
+1630999715746	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofilewt4eb2\\search.json.mozlz4", (void 0)))
+1630999717707	Marionette	INFO	Listening on port 12885
+1630999717942	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: (new TypeError("can't access property \"getFront\", container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2309))
+1630999772060	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+console.error: "Tried to send a 'target-destroyed-form' event on an already destroyed actor 'watcher'"
+Handler function threw an exception: TypeError: can't access property "browserId", topFrame.browsingContext is null
+Stack: matchRequest@resource://devtools/server/actors/network-monitor/network-observer.js:126:9
+_onRequestHeader@resource://devtools/server/actors/network-monitor/network-observer.js:819:10
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:704:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 126, column: 9
+console.error: (new TypeError("can't access property \"browserId\", topFrame.browsingContext is null", "resource://devtools/server/actors/network-monitor/network-observer.js", 126))
+1630999849425	geckodriver	INFO	Listening on 127.0.0.1:7525
+1630999852457	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileBJOajg"
+1630999853164	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileBJOajg\\search.json.mozlz4", (void 0)))
+1630999855117	Marionette	INFO	Listening on port 4997
+1630999855585	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=OPPO&fenlei=256&rsv_pq=900d1590000218b1&rsv_t=1084xX0boSqIHYPENiK1ZHukq8z57vRw%2Fs3ghDu5%2BLL4051AnHS26gJQlOY&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_sug3=4&rsv_btype=i&inputT=92&rsv_sug4=93&rsv_jmp=fail, line 6058: ReferenceError: define is not defined
+JavaScript error: http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=OPPO&fenlei=256&rsv_pq=900d1590000218b1&rsv_t=1084xX0boSqIHYPENiK1ZHukq8z57vRw%2Fs3ghDu5%2BLL4051AnHS26gJQlOY&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_sug3=4&rsv_btype=i&inputT=92&rsv_sug4=93&rsv_jmp=fail, line 6087: ReferenceError: require is not defined
+JavaScript error: http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=OPPO&fenlei=256&rsv_pq=900d1590000218b1&rsv_t=1084xX0boSqIHYPENiK1ZHukq8z57vRw%2Fs3ghDu5%2BLL4051AnHS26gJQlOY&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_sug3=4&rsv_btype=i&inputT=92&rsv_sug4=93&rsv_jmp=fail, line 6149: ReferenceError: initPreload is not defined
+JavaScript error: http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=OPPO&fenlei=256&rsv_pq=900d1590000218b1&rsv_t=1084xX0boSqIHYPENiK1ZHukq8z57vRw%2Fs3ghDu5%2BLL4051AnHS26gJQlOY&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_sug3=4&rsv_btype=i&inputT=92&rsv_sug4=93&rsv_jmp=fail, line 6163: TypeError: can't access property "addConfig", bds.amd is undefined
+1630999922984	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+console.error: (new TypeError("can't access property \"elt\", container.editor is undefined", "resource://devtools/client/inspector/markup/markup.js", 1619))
+console.error: "Tried to send a 'target-destroyed-form' event on an already destroyed actor 'watcher'"
+1630999969501	geckodriver	INFO	Listening on 127.0.0.1:11580
+1630999972532	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofilepqCK8P"
+1630999972995	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofilepqCK8P\\search.json.mozlz4", (void 0)))
+1630999975152	Marionette	INFO	Listening on port 4162
+1630999975659	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1631000051226	geckodriver	INFO	Listening on 127.0.0.1:2890
+1631000054243	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileLeA0ek"
+1631000054703	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileLeA0ek\\search.json.mozlz4", (void 0)))
+1631000056882	Marionette	INFO	Listening on port 6575
+1631000057368	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1631000150458	geckodriver	INFO	Listening on 127.0.0.1:7593
+1631000153479	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileNkpGp4"
+1631000153941	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileNkpGp4\\search.json.mozlz4", (void 0)))
+1631000155957	Marionette	INFO	Listening on port 2623
+1631000156106	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1631000176090	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+console.error: "Tried to send a 'target-destroyed-form' event on an already destroyed actor 'watcher'"
+1631000275990	Marionette	INFO	Stopped listening on port 2623
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+[Parent 16792, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:544
+1631000280408	geckodriver	INFO	Listening on 127.0.0.1:14227
+1631000283440	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileExVzGf"
+1631000283895	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileExVzGf\\search.json.mozlz4", (void 0)))
+1631000286047	Marionette	INFO	Listening on port 14236
+1631000286103	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1631000349877	geckodriver	INFO	Listening on 127.0.0.1:10681
+1631000352910	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileZFYXcS"
+1631000353382	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileZFYXcS\\search.json.mozlz4", (void 0)))
+1631000355492	Marionette	INFO	Listening on port 10689
+1631000355560	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1631000415778	Marionette	INFO	Stopped listening on port 10689
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+s session
+1631000455936	geckodriver	INFO	Listening on 127.0.0.1:13021
+1631000458958	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileB2OcG2"
+1631000459438	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Administrator\\AppData\\Local\\Temp\\rust_mozprofileB2OcG2\\search.json.mozlz4", (void 0)))
+1631000461717	Marionette	INFO	Listening on port 13031
+1631000462090	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://devtools/server/actors/utils/stylesheets-manager.js, line 281: TypeError: can't access property "textContent", styleSheet.ownerNode is null
+JavaScript error: resource://devtools/server/actors/utils/stylesheets-manager.js, line 281: TypeError: can't access property "textContent", styleSheet.ownerNode is null
+JavaScript error: resource://devtools/server/actors/utils/stylesheets-manager.js, line 281: TypeError: can't access property "textContent", styleSheet.ownerNode is null
+console.error: "Error while calling actor 'stylesheets's method 'getText'" "can't access property \"textContent\", styleSheet.ownerNode is null"
+console.error: (new TypeError("can't access property \"textContent\", styleSheet.ownerNode is null", "resource://devtools/server/actors/utils/stylesheets-manager.js", 281))
+console.error: "Error while calling actor 'stylesheets's method 'getText'" "can't access property \"textContent\", styleSheet.ownerNode is null"
+console.error: (new TypeError("can't access property \"textContent\", styleSheet.ownerNode is null", "resource://devtools/server/actors/utils/stylesheets-manager.js", 281))
+console.error: "Error while calling actor 'stylesheets's method 'getText'" "can't access property \"textContent\", styleSheet.ownerNode is null"
+console.error: (new TypeError("can't access property \"textContent\", styleSheet.ownerNode is null", "resource://devtools/server/actors/utils/stylesheets-manager.js", 281))
+console.error: (new Error("Protocol error (TypeError): can't access property \"textContent\", styleSheet.ownerNode is null from: server0.conn0.child4/styleSheetsActor4 (resource://devtools/server/actors/utils/stylesheets-manager.js:281:7)", "resource://devtools/shared/protocol/Front.js", 362))
+console.error: (new Error("Protocol error (TypeError): can't access property \"textContent\", styleSheet.ownerNode is null from: server0.conn0.child4/styleSheetsActor4 (resource://devtools/server/actors/utils/stylesheets-manager.js:281:7)", "resource://devtools/shared/protocol/Front.js", 362))
+console.error: (new Error("Protocol error (TypeError): can't access property \"textContent\", styleSheet.ownerNode is null from: server0.conn0.child4/styleSheetsActor4 (resource://devtools/server/actors/utils/stylesheets-manager.js:281:7)", "resource://devtools/shared/protocol/Front.js", 362))
+console.error: (new Error("Protocol error (TypeError): can't access property \"textContent\", styleSheet.ownerNode is null from: server0.conn0.child4/styleSheetsActor4 (resource://devtools/server/actors/utils/stylesheets-manager.js:281:7)", "resource://devtools/shared/protocol/Front.js", 362))
+console.error: (new Error("Protocol error (TypeError): can't access property \"textContent\", styleSheet.ownerNode is null from: server0.conn0.child4/styleSheetsActor4 (resource://devtools/server/actors/utils/stylesheets-manager.js:281:7)", "resource://devtools/shared/protocol/Front.js", 362))
+console.error: (new Error("Protocol error (TypeError): can't access property \"textContent\", styleSheet.ownerNode is null from: server0.conn0.child4/styleSheetsActor4 (resource://devtools/server/actors/utils/stylesheets-manager.js:281:7)", "resource://devtools/shared/protocol/Front.js", 362))
