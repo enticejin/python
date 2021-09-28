@@ -13,7 +13,7 @@
 
         body, html, #map {
             width: 100%;
-            height: 100%;
+            height: 85%;
             overflow: hidden;
             margin: 0;
             font-family: "微软雅黑";
@@ -33,7 +33,7 @@
 <script type="text/javascript">
 
     //地图设置中心，设置到成都，在本地离线地图offlineMapTiles刚好有一张zoom为4的成都瓦片
-    var center = ol.proj.transform([116.297611, 40.047363], 'EPSG:4326', 'EPSG:3857');
+    var center = ol.proj.transform([106.297611, 26.047363], 'EPSG:4326', 'EPSG:3857');
     //计算静态地图映射到地图上的范围，图片像素为550*344，保持比例的情况下，把分辨率放大一些
     var extent = [
         center[0] - 550 * 1000 / 2,
@@ -53,7 +53,6 @@
             maxZoom: 12
         })
     });
-
     map.addLayer(layer_guiyang);
     //加载静态图层
     map.addLayer(new ol.layer.Image({
@@ -63,49 +62,128 @@
         })
     }));
 
-    // GL版命名空间为BMapGL
-    // 按住鼠标右键，修改倾斜角和角度
-    var bmap = new BMapGL.Map("map");    // 创建Map实例
-    bmap.centerAndZoom(new BMapGL.Point(116.297611, 40.047363), 17);  // 初始化地图,设置中心点坐标和地图级别
-    bmap.enableScrollWheelZoom(true);     // 开启鼠标滚轮缩放
-    var path = [{
-        'lng': 116.297611,
-        'lat': 40.047363
-    }, {
-        'lng': 116.302839,
-        'lat': 40.048219
-    }, {
-        'lng': 116.308301,
-        'lat': 40.050566
-    }, {
-        'lng': 116.305732,
-        'lat': 40.054957
-    }, {
-        'lng': 116.304754,
-        'lat': 40.057953
-    }, {
-        'lng': 116.306487,
-        'lat': 40.058312
-    }, {
-        'lng': 116.307223,
-        'lat': 40.056379
-    }];
-    var point = [];
-    for (var i = 0; i < path.length; i++) {
-        point.push(new BMapGL.Point(path[i].lng, path[i].lat));
-    }
-    var pl = new BMapGL.Polyline(point);
-    setTimeout('start()', 1000);
+    // 模拟后台数据
+    var trackData = [
+        {
+            "lon": 106.26,
+            "lat": 26.629
+        },
+        {
+            "lon": 106.27,
+            "lat": 26.619
+        }, {
+            "lon": 106.25,
+            "lat": 26.629
+        },
+        {
+            "lon": 106.6189462165178,
+            "lat": 26.64349563895087
+        },
+        {
+            "lon": 106.10988522879458,
+            "lat": 26.8570048730469
+        },
+        {
+            "lon": 106.58708083147317,
+            "lat": 26.87942320312504
+        },
+        {
+            "lon": 106.58708083147317,
+            "lat": 26.8954315876116
+        },
+        {
+            "lon": 106.29514854771196,
+            "lat": 26.8954315876116
+        },
+        {
+            "lon": 106.75457021484374,
+            "lat": 26.8559607533482
+        },
+        {
+            "lon": 106.5277985253906,
+            "lat": 26.2406672084263
+        },
+        {
+            "lon": 106.948185765904,
+            "lat": 26.0254369698661
+        },
+        {
+            "lon": 106.06907909458701,
+            "lat": 26.795792593471
+        },
+        {
+            "lon": 106.87138231445309,
+            "lat": 26.365737015904
+        },
+        {
+            "lon": 106.36468155133926,
+            "lat": 26.7870354617745
+        },
+        {
+            "lon": 106.86195445452006,
+            "lat": 26.164737297712
+        },
+        {
+            "lon": 106.8489324762834,
+            "lat": 26.9895157073103
+        },
+        {
+            "lon": 106.8750778390066,
+            "lat": 26.9895157073103
+        },
+        {
+            "lon": 106.8750778390066,
+            "lat": 26.9639780566406
+        },
+        {
+            "lon": 106.9255269587053,
+            "lat": 26.9639780566406
+        },
+        {
+            "lon": 106.79803391043527,
+            "lat": 26.2476088113839
+        },
+        {
+            "lon": 106.58708083147317,
+            "lat": 26.8954315876116
+        },
+        {
+            "lon": 106.29514854771196,
+            "lat": 26.8954315876116
+        },
+        {
+            "lon": 106.75457021484374,
+            "lat": 26.8559607533482
+        },
+    ]
 
-    function start() {
-        trackAni = new BMapGLLib.TrackAnimation(bmap, pl, {
-            overallView: true,
-            tilt: 30,
-            duration: 20000,
-            delay: 300
-        });
-        trackAni.start();
+    // 遍历得到点的集合
+    var features = []
+    for (var i = 0; i < trackData.length; i++) {
+        // 将点转换成地图识别的格式
+        var coordinate = ol.proj.transform([trackData[i].lon, trackData[i].lat], 'EPSG:4326', 'EPSG:3857')
+        features[i] = new ol.Feature({
+            geometry: new ol.geom.Point(coordinate)
+        })
     }
+    // 点图层
+    var point_layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: features
+        }),
+        style: new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 4,
+                stroke: new ol.style.Stroke({
+                    color: '#fff'
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(255,0,140,0.99)'
+                })
+            })
+        })
+    })
+    map.addLayer(point_layer);
 </script>
 </body>
 </html>
