@@ -49,5 +49,5 @@
 		git add .
 		git commit -m “your comment”
 		git push -u origin master -f
-        2021-09-27：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
+        2021-09-27：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
 ```
