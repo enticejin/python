@@ -39,12 +39,17 @@
         var centerX = 106.612909358;
         var centerY = 26.5099405567;
         var extent = [centerX, centerY, centerX, centerY];
-
+        var layer1 = new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        /*
         var layer1 = new ol.layer.Tile({
             source: new ol.source.XYZ({
-                url:'http://wprd0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}' //谷歌瓦片
+                url:'http://wprd0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}' //高德地图
             }),
-        }); // 谷歌卫星地图（混合）
+        });
+        */
+        // 谷歌卫星地图（混合）
         var layer2 = new ol.layer.Tile({
             source: new ol.source.XYZ({
                 url:'http://online3.map.bdimg.com/onlinelabel/?qt=tile&x=" + x + "&y=" + y + "&z=" + z + "&styles=pl&udt=20151021&scaler=1&p=1'//谷歌地形地图
@@ -68,9 +73,9 @@
             target: 'map',
             view: new ol.View({
                 center: [centerX, centerY], //3857坐标系
-                zoom: 17,//当前的放大度数
+                zoom: 20,//当前的放大度数
                 minZoom:5,//最小放大度数
-                maxZoom:19,//最大放大度数
+                maxZoom:20,//最大放大度数
                 // extent: extent, //限制中心的程度，换句话说，中心不能超出这个范围, 前后值一样(minx=maxx, miny=maxy)的话就无法移动。
                 //然后设置minZoom 和 maxZoom 一样大，就无法缩放。
             }),
@@ -88,6 +93,13 @@
             [106.930673579, 27.9845010934],
             [106.707987847, 27.4382157368],
             [106.51783087, 27.0353800203],
+            [106.51783086, 27.0353800302],
+            [106.51983087, 27.0353900203],
+            [106.51883087, 27.0354800203],
+            [106.51983087, 27.0355800203],
+            [106.52783087, 27.0359800203],
+            [106.52783087, 27.0363800203],
+            [106.53783087, 27.0373800203],
         ];
 
         //实例一个线(标记点)的全局变量
@@ -125,12 +137,14 @@
         map.addLayer(vectorLayer); //将绘制层添加到地图容器中
 
         // 最后一个标记点的坐标
-        var lngX = coordinate[3][0];
-        var lngY = coordinate[3][1];
+        var lngX = coordinate[coordinate.length -1][0];
+        var lngY = coordinate[coordinate.length -1][1];
 
         var interval = setInterval(function(){
-            lngX = lngX - Math.random() * 30;
-            lngY = lngY + Math.random() * 30;
+            lngX = lngX - Math.random() * 1;
+            lngY = lngY + Math.random() * 1;
+            console.log("lngX===="+ lngX)
+            console.log("lngY===="+ lngY)
             var newPoint = [lngX, lngY];
             coordinate.shift();
             coordinate.push(newPoint);
@@ -144,7 +158,7 @@
 
         // webSocket部分，用来不停的获取数据
         var websocket;
-        var host = "ws://echo.websocket.org/";//声明host注意：是ws协议
+        var host = "ws://localhost:1200";//声明host注意：是ws协议
         //判断当前浏览器是否支持WebSocket
         if('WebSocket' in window){
             websocket = new WebSocket(host);
