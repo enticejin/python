@@ -141,13 +141,12 @@
         var lngY = coordinate[coordinate.length -1][1];
 
         var interval = setInterval(function(){
-            lngX = lngX - Math.random() * 1;
-            lngY = lngY + Math.random() * 1;
-            console.log("lngX===="+ lngX)
-            console.log("lngY===="+ lngY)
+            lngX = lngX - Math.random() * 30;
+            lngY = lngY + Math.random() * 30;
             var newPoint = [lngX, lngY];
             coordinate.shift();
             coordinate.push(newPoint);
+            console.log("newPoint=========" + newPoint)
             geometry.setCoordinates(coordinate);
             }, 300);
 
