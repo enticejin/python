@@ -30,10 +30,17 @@
 		Push failed
 			Unable to access 'https://github.com/enticejin/python.git/': OpenSSL SSL_read: Connection was reset, errno 10054
 ```
-# 解决办法
+# 解决办法1
 ```bash
 		git config --global http.sslVerify "false"
 ```
+# 解决办法2
+```bash
+       参考链接： https://blog.csdn.net/u013778905/article/details/83501204
+```
+
+
+
 # 问题描述
 ```bash
 		Push failed
@@ -49,5 +56,4 @@
 		git add .
 		git commit -m “your comment”
 		git push -u origin master -f
-        2021-09-27：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
 ```
