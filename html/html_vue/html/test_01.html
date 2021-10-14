@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../css/theme_chalk.css">
+  <link rel="stylesheet" href="../css/fonts/element-icons.woff">
+  <link rel="stylesheet" href="../css/fonts/element-icons.ttf">
+</head>
+<body>
+  <div id="app">
+    <el-button type="text" @click="open">点击打开 Message Box</el-button>
+	
+  <button onclick="open()">Open</button>
+  </div>
+ </body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <script src="../js/jquery-1.8.3.js"></script>
+
+  <!-- import JavaScript -->
+  <script src="../js/element_ui.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: function() {
+        return { visible: false }
+      },
+	  methods: {
+      open() {
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+      }
+    }
+    });
+	
+	function open(){
+		app.open();
+	}
+  </script>
+</html>
+
