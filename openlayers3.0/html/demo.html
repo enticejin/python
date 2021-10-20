@@ -1,96 +1,169 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>首页</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css"
-          type="text/css">
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <style>
-        #box{
-            color: aliceblue;
-            width: 110px;
-            height: 25px;
-            border: 1px solid #c5c5c5;
-            border-radius: 10px;
-            background-color: #797777;
-            text-align: center;
-            /* text-indent: 5px; */
-            font-size: 14px;
-            line-height: 25px;
-            cursor: pointer;
-        }
-        #down{
-            border: 1px solid #c5c5c5;
-            width: 90px;
-            margin-left: 5px;
-            display: none;
-        }
-        ul{
-            padding: 0;
-            margin: 0;
-        }
-        li{
-            list-style: none;
-            font-size: 14px;
-            border-bottom: 1px dashed #c5c5c5;
-            text-align: center;
-            height: 25px;
-            line-height: 25px;
-            color: aliceblue;
-            background-color: #333;
-            cursor: pointer;
-        }
-        li:hover{
-            background-color: #5c0e0e;
-        }
-    </style>
-</head>
-<body>
+<html>
+	<head>
+		<title>Accessible Map</title>
+		<link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+		<!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+		<script
+			src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL">
+		</script>
+		<script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
+		<style>
+			a.skiplink {
+				position: absolute;
+				clip: rect(1px, 1px, 1px, 1px);
+				padding: 0;
+				border: 0;
+				height: 1px;
+				width: 1px;
+				overflow: hidden;
+			}
 
-<body>
-<div id="box">请选择手机名称</div>
-<div id="down">
-    <ul class="phones">
-        <li>华为</li>
-        <li>小米</li>
-        <li>oppo</li>
-        <li>vivo</li>
-        <li>爱疯</li>
-        <li>三星</li>
-    </ul>
-</div>
-</body>
-<script type="text/javascript">
-    var obox = document.getElementById("box");
-    var odown = document.getElementById("down");
-    var oli = document.querySelectorAll("li");
-    console.log(oli);
-    var timer;
-    //当点击obox时，呈现出下拉列表的内容，给个延时效果
-    obox.onclick = function(){
-        clearInterval(timer);
-        timer = setInterval(function(){
-            odown.style.display = "block";
-        },300)
-        ///选中列表中的某一项并将其呈现在box中,隐藏下拉列表
-        for(var i=0;i<oli.length;i++){
-            oli[i].n = i;
-            oli[i].onclick = function(){
-                obox.innerHTML = this.innerHTML;
-                odown.style.display = "none";
-                clearInterval(timer);
-            }
-        }
-    }
-</script>
-</body>
+			a.skiplink:focus {
+				clip: auto;
+				height: auto;
+				width: auto;
+				background-color: #fff;
+				padding: 0.3em;
+			}
+
+			#map:focus {
+				outline: #4A74A8 solid 0.15em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map" class="map" tabindex="0"></div>
+		<script>
+			var longitude = 106.6280289;
+			var latitude = 26.6220112;
+			var socket = null;
+			window.load = initWebSocket();
+
+			function initWebSocket() {
+				//初始化weosocket
+				if (typeof(WebSocket) == "undefined") {
+					console.log("您的浏览器不支持WebSocket");
+				} else {
+					console.log("您的浏览器支持WebSocket");
+					var ip = '127.0.0.1'
+					var port = 10086
+					var userId = 1;
+					//实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+					var socketUrl = "ws://" + ip + ":" + port + "/webSocket/" + userId;
+					console.log(socketUrl);
+					if (socket != null) {
+						socket.close();
+						socket = null;
+					}
+					socket = new WebSocket(socketUrl);
+					//打开事件
+					socket.onopen = function() {
+						console.log("websocket已打开");
+						//socket.send("这是来自客户端的消息" + location.href + new Date());
+					};
+					/*
+					//获得消息事件
+					socket.onmessage = function(msg) {
+						var serverMsg = "收到服务端信息：" + msg.data;
+						console.log(serverMsg);
+						//发现消息进入    开始处理前端触发逻辑
+					};
+					*/
+					//关闭事件
+					socket.onclose = function() {
+						console.log("websocket已关闭");
+					};
+					//发生了错误事件
+					socket.onerror = function() {
+						console.log("websocket发生了错误");
+					}
+				}
+			}
+			//把经纬度发给后端
+			function sendMessage() {
+				getMessage();
+				if (typeof(WebSocket) == "undefined") {
+					console.log("您的浏览器不支持WebSocket");
+				} else {
+					var msg = '{' + "longitude:" + longitude + ",latitude:" + latitude + '}'
+					socket.send(msg);
+				}
+			}
+			// 模拟后台数据
+			var trackData = [
+			    {
+			        "lon":longitude,
+			        "lat":latitude
+			    },
+			]
+			var features = []
+			var map = new ol.Map({
+			    target: 'map',
+			    view: new ol.View({
+			        center: ol.proj.fromLonLat([longitude, latitude]),
+			        zoom: 20
+			    }),
+			    layers:[
+
+			    ]
+			})
+			 // 底图
+			var tileLayer =  new ol.layer.Tile({
+			            source: new ol.source.OSM()
+			        });
+			//接收后端传过来的经纬度
+			function getMessage() {
+				socket.onmessage = function(msg) {
+					var serverMsg = "收到服务端信息：" + msg.data;
+					var data = JSON.parse(msg.data);
+					let lonLat = {};
+					lonLat.lon = data[0];
+					lonLat.lat = data[1];
+					trackData = lonLat;
+					var coordinate = ol.proj.transform([lonLat.lon,lonLat.lat],'EPSG:4326','EPSG:3857')
+					features[0] = new ol.Feature({
+									        geometry: new ol.geom.Point(coordinate)
+					})
+					// 点图层
+					 var addFeature = new ol.layer.Vector({
+					            source: new ol.source.Vector({
+					                features: features
+					            }),
+					            style: new ol.style.Style({
+					                image: new ol.style.Circle({
+					                    radius: 5,
+					                    stroke: new ol.style.Stroke({
+					                        color:'#fff'
+					                    }),
+					                    fill: new ol.style.Fill({
+					                        color:'#f00'
+					                    })
+					                })
+					            })
+					        })
+
+							map.addLayer(tileLayer)
+							map.addLayer(addFeature)
+					}
+					//发现消息进入    开始处理前端触发逻辑
+				};
+			//每隔1秒钟发送一次
+			var int = self.setInterval("sendMessage()", 200);
+				 /*
+				for(var i=0;i<trackData.length;i++){
+				    // 将点转换成地图识别的格式
+				    var coordinate = ol.proj.transform([trackData[i].lon,trackData[i].lat],'EPSG:4326','EPSG:3857')
+				    features[i] = new ol.Feature({
+				        geometry: new ol.geom.Point(coordinate)
+				    })
+				}
+				*/
+
+
+
+
+
+		</script>
+	</body>
 </html>
