@@ -49,31 +49,32 @@
             }),
         });
         */
-        // 谷歌卫星地图（混合）
+        // 百度地图（混合）
         var layer2 = new ol.layer.Tile({
             source: new ol.source.XYZ({
-                url:'http://online3.map.bdimg.com/onlinelabel/?qt=tile&x=" + x + "&y=" + y + "&z=" + z + "&styles=pl&udt=20151021&scaler=1&p=1'//谷歌地形地图
+                url:'http://online3.map.bdimg.com/onlinelabel/?qt=tile&x=" + x + "&y=" + y + "&z=" + z + "&styles=pl&udt=20151021&scaler=1&p=1'//百度地图
             }),
-        }); // 谷歌地形地图
+        }); // 添加自定义图片
         var layerImage = new ol.layer.Image({
             source: new ol.source.ImageStatic({
                 // url: 'images/mapTest.jpg',//这里添加静态图片的地址
                 url:'test.png',
-            imageExtent: [centerX-500, centerY-500, centerX+500, centerY+500],// 地图坐标中的图像的范围。这是图像的[左，右，右，上]地图坐标
+            imageExtent:[centerX-500, centerY-500, centerX+500, centerY+500],// 地图坐标中的图像的范围。这是图像的[左，右，右，上]地图坐标
             }),
          }); // 自定义的地图图片
 
         //实例一个map
         var map = new ol.Map({
             layers: [
-                // layer2,
+                 //layer2,
                 layer1,
                 layerImage,
             ],
             target: 'map',
             view: new ol.View({
-                center: [centerX, centerY], //3857坐标系
-                zoom: 15,//当前的放大度数
+                //center:ol.proj.transform([centerX, centerY], 'EPSG:4326', 'EPSG:3857'), //3857坐标系
+                center:[centerX, centerY], //3857坐标系
+                zoom: 20,//当前的放大度数
                 minZoom:5,//最小放大度数
                 maxZoom:20,//最大放大度数
                 // extent: extent, //限制中心的程度，换句话说，中心不能超出这个范围, 前后值一样(minx=maxx, miny=maxy)的话就无法移动。
@@ -89,6 +90,17 @@
 
         //散列点数组，放置的点的位置数据
         var coordinate = [
+            [106.51783087, 27.581665377],
+            [106.930673579, 27.9845010934],
+            [106.707987847, 27.4382157368],
+            [106.51783087, 27.0353800203],
+            [106.51783086, 27.0353800302],
+            [106.51983087, 27.0353900203],
+            [106.51883087, 27.0354800203],
+            [106.51983087, 27.0355800203],
+            [106.52783087, 27.0359800203],
+            [106.52783087, 27.0363800203],
+            [106.53783087, 27.0373800203],
             [106.51783087, 27.581665377],
             [106.930673579, 27.9845010934],
             [106.707987847, 27.4382157368],
@@ -141,9 +153,14 @@
         var lngY = coordinate[coordinate.length -1][1];
 
         var interval = setInterval(function(){
-            lngX = lngX - Math.random() * 30;
-            lngY = lngY + Math.random() * 30;
+            lngX = lngX - Math.random() * 1;
+            lngY = lngY + Math.random() * 1;
             var newPoint = [lngX, lngY];
+            /*
+            var position_point = ol.proj.transform(newPoint,
+							'EPSG:4326', 'EPSG:3857')
+
+             */
             coordinate.shift();
             coordinate.push(newPoint);
             console.log("newPoint=========" + newPoint)
