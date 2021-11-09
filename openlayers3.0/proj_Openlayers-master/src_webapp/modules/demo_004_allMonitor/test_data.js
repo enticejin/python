@@ -21,7 +21,11 @@ for (var i = 0; i < 10; i++) {
 var lines_arr = [];
 
 // 添加一个点
+<<<<<<< HEAD
 var lines_0 = [116.06, 39.67];
+=======
+var lines_0 = [106.6280289, 26.6220112];
+>>>>>>> python-day
 lines_arr.push(lines_0);
 var new_p = null;
 for (var j = 0; j < 20; j++) {

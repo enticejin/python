@@ -47,7 +47,11 @@
             // 文字样式
             font: 'normal 16px 黑体',
             // 文本内容
+<<<<<<< HEAD
             text: "name:me",
+=======
+            text: "name:admin",
+>>>>>>> python-day
             // 文本填充样式
             fill: new ol.style.Fill({
               color: 'rgba(255,255,255,1)'
@@ -294,7 +298,11 @@
           $('#tool')
             .show()
             .html(`
+<<<<<<< HEAD
               <div class="item his_s" id="his_s"><button>开始</button></div>
+=======
+              <div class="item his_s" id="his_s">开始</div>
+>>>>>>> python-day
             `)
             .off()
             .on('click', '#his_s', function() {

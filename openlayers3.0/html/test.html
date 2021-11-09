@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+      list-style: none;
+    }
+    .big{
+      width: 200px;
+      height: 200px;
+      margin:100px auto;
+    }
+    ul{
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      position: relative;
+      overflow: hidden;
+    }
+    li{
+      width: 100px;
+      height: 100px;
+      line-height: 100px ;
+      text-align: center;
+    }
+    .color1{
+      background: red;
+      position: absolute;
+    }
+    .color2{
+      background: yellow;
+      position: absolute;
+    }
+    .color3{
+      background: pink;
+      position: absolute;
+    }
+    .color4{
+      background: green;
+      position: absolute;
+    }
+    .input1{
+      width: 30px;
+      height: 30px;
+      margin: 10px ;
+      position: absolute;
+      top:150px ;
+      left:550px;
+    }
+    .input2{
+      width: 30px;
+      height: 30px;
+      margin: 10px ;
+      position: absolute;
+      top:150px ;
+      left:590px;
+    }
+  </style>
+</head>
+<body>
+<div class="big">
+<ul>
+  <li class="color1" style="top:0;">1</li>
+  <li class="color2" style="top:100px;">2</li>
+  <li class="color3" style="top:200px;">3</li>
+  <li class="color4" style=" top:-100px;">4</li>
+</ul>
+  <input class="input1" type="button" value="←">
+  <input class="input2" type="button" value="→">
+</div>
+<script>
+  window.onload=function () {
+    var oIpt1=document.getElementsByTagName("input")[0];
+    var oIpt2=document.getElementsByTagName("input")[1];
+    var allColor=document.getElementsByTagName("li");
+    oIpt2.addEventListener("click",function () {
+      for(var i=0;i<allColor.length;i++){
+        allColor[i].style.top=parseFloat(allColor[i].style.top)-100+"px";
+        allColor[i].style.transition=1+"s"
+            if(allColor[i].style.top==-300+"px"){
+              allColor[i].style.top=100+"px"
+              allColor[i].style.transition=0+"s"
+            }
+      }
+    },false)
+    oIpt1.addEventListener("click",function () {
+      for(var i=0;i<allColor.length;i++){
+        allColor[i].style.top=parseFloat(allColor[i].style.top)+100+"px";
+        allColor[i].style.transition=1+"s"
+        if (allColor[i].style.top==400+"px"){
+          allColor[i].style.top=0+"px"
+          allColor[i].style.transition=0+"s"
+        }
+      }
+    },false)
+  }
+</script>
+</body>
+</html>
